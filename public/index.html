@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/GuardGuys OnSITE Logo.png" alt="">
+        <div class="week-selector">
+            <div class="selector-label">week of</div>
+            <div class="week-window">
+                <button id="left-arrow">&LeftArrow;</button>
+                <div><p id="weekOf"></p></div>
+                <button id="right-arrow">&RightArrow;</button>
+            </div>
+            <button id="current-week">Current Week</button>
+        </div>
+        <div>
+            <button id="add-event">New Event</button>
+        </div>
+    </header>
+    
+     <section class="week-view"></section>
+</body>
+
+<!-- Modal Input Form -->
+<form id="event-input">
+    <h2 id="form-label">Edit Details</h2>
+    <label for="event-title">Event</label>
+    <input type="text" name="" id="event-title">
+    <div>
+        <div class="selector-group">
+            <label for="start-date">Start</label>
+            <input id="start-date" class="date-selector" type="date">    
+            <input id="start-time" class="time-selector" type="time">       
+        </div>
+        <div class="selector-group">
+            <label for="start-date">End</label>
+            <input id="end-date" class="date-selector" type="date">    
+            <input id="end-time" class="time-selector" type="time">
+        </div>
+        <div class="assigned-line">
+            <div>
+                <label for="onsite-selector">OnSITE</label>
+                <input type="checkbox" name="onsite-selector" id="onsite-selector">    
+            </div>
+            <div>
+                <label for="user-selector">Assigned to</label>
+                <select id="user-selector">
+                    <option value="1">Pat</option>
+                    <option value="2">Charlie</option>
+                </select>        
+            </div>
+        </div>
+    </div>
+
+    <label for="event-notes">Notes</label>
+    <textarea name="" id="event-notes" cols="30" rows="5"></textarea>
+    <div class="button-group">
+        <button id="submit">Submit</button>
+        <button id="cancel">Cancel</button>
+        <button id="delete">Delete</button>
+    </div>
+</form>
+
+
+<script src="./javascript/script.js"></script>
+</html>

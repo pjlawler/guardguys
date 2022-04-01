@@ -15,10 +15,6 @@ Event.init({
         type: DataTypes.DATE,
         allowNull: false
     },
-    start_time: {
-        type: DataTypes.STRING,
-        allownull: false
-    },
     event: {
         type: DataTypes.STRING,
         allowNull: false
@@ -36,17 +32,9 @@ Event.init({
         allowNull: false,
         defaultValue: 3600000
     },
-    recurring: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false
-    },
     user_id: {
         type: DataTypes.INTEGER,
-        // references: {
-        //     model: 'user',
-        //     key: 'id'
-        //   }
+        allowNull: true
     }
 },{
     sequelize,

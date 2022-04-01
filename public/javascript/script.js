@@ -160,21 +160,15 @@ async function delete_event(id) {
     }
 }
 async function create_event(event_data) {
-    const response = await fetch ('/api/events/', {
+    console.log(event_data);
+    const response = await fetch('/api/events', {
         method: 'post',
-        headers: { 'Content-Type':'application/json'},
-        body: JSON.stringify({
-            date: event_data.date,
-            start_time: event_data.start_time,
-            event: event_data.event,
-            onsite: event_data.onsite,
-            notes: event_data.notes,
-            duration: event_data.duration,
-            user_id: event_data.user_id
-        })
+        body: JSON.stringify(event_data),
+        headers: {'Content-Type':'application/json'}
     })
     if(response.ok) {
         const data = response.json()
+        console.log(data);
         return data;
     }
     else {
@@ -219,6 +213,13 @@ function create_dayEl(date) {
     weekdayEl.innerText = convertDateTo('weekday_name_short', date);
     dateLabelEl.innerText = `(${convertDateTo('short_date', date)})`;
     dayHeader.append(weekdayEl, dateLabelEl)
+    
+    const days_date = convertDateTo('medium_date', date);
+    const todays_date = convertDateTo('medium_date', new Date()); 
+    if(days_date === todays_date) { dayEl.classList.add('this_day')}
+    else if (new Date() > date) { dayEl.classList.add('past_day')}
+    else { dayEl.classList.add('future_day')}
+
  
     dayEl.classList.add('day-column')
     dayHeader.classList.add('day-header')
@@ -232,12 +233,14 @@ function create_dayEl(date) {
             const timeEl = document.createElement('p');
             const assignedEl = document.createElement('p');
             const notesEl = document.createElement('p');
-        
+            
             eventEl.setAttribute("data-id", event.id);
     
             eventEl.classList.add('event');
             if (event.onsite) {
-                eventEl.classList.add('onsite')
+                eventEl.classList.add('onsite');
+            } else {
+                eventEl.classList.add('inclinic');
             }
              
             titleEl.classList.add('event-title');
@@ -248,9 +251,10 @@ function create_dayEl(date) {
             // adds the to the displaye event
             timeEl.innerText = convertDateTo('time_12hour', event.date);
             titleEl.innerText = event.event;
-            assignedEl.innerText = event.user.username;
-            notesEl.innerHTML = event.notes ? '&#9998;' : null;
-            
+            assignedEl.innerText = event.user ? event.user.username : '????'
+            notesEl.innerHTML = event.notes ? '&#9835;' : null;
+        
+
             eventHeaderEl.append(timeEl, notesEl, assignedEl)
             eventEl.append(eventHeaderEl, titleEl);    
             dayEl.append(eventEl);
@@ -302,11 +306,12 @@ document.querySelector('.week-selector').addEventListener('click', event => {
         return;
     });
 });
-
 // listens for an event element being clicked, then displays the modal with the event data populated to it
 document.querySelector('.week-view').addEventListener('click', e => {
+    console.log('click submit')
         e.preventDefault();
         editing_event = clickedId(e.target);
+        console.log(editing_event);
         if(editing_event) {
             document.querySelector('#event-input').style.display = "flex";    
             const labelEl = document.querySelector('#form-label');
@@ -341,7 +346,7 @@ document.querySelector('.week-view').addEventListener('click', e => {
 // listens for the submit form button
 document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const labelEl = document.querySelector('#form-label');
     const titleEl = document.querySelector('#event-title');
     const start_date = document.querySelector('#start-date');
@@ -379,8 +384,7 @@ document.querySelector('#submit').addEventListener('click', (e) => {
     
     event_start = new Date(`${start_date.value}  ${start_time.value}`);
     event_end = new Date(`${end_date.value}  ${end_time.value}`);
-    
-    
+
     if (event_end < event_start) {
         alert("End date must be later than the start!");
         return
@@ -390,12 +394,13 @@ document.querySelector('#submit').addEventListener('click', (e) => {
  
     const event_data = {
         event: titleEl.value,
-        date: event_start,
+        date: `${start_date.value}  ${start_time.value}`,
         duration: event_duration,
         onsite: onsite.checked,
         notes: event_notes.value,
-        user_id: user_selector.value
+        user_id: user_selector.value ? user_selector.value : null
     }
+    
 
     if(editing_event) {
         // updates the event
@@ -414,20 +419,23 @@ document.querySelector('#submit').addEventListener('click', (e) => {
     }
     else {
         // creates a new event
-        const currentWeek = new Date(get_weekOf_for(event_start));
+        const event_date = new Date(event_start);
+        const currentWeek = new Date(get_weekOf_for(event_date));
         create_event(event_data).then(() => {
             document.querySelector('#event-input').style.display = "none"
+            
         })
         .then(() => {
-            load_event().then((data) => {
-                event_items.length = 0;
+            load_events().then((data) => {
+                event_items.length = 0
                 event_items.splice(0, events.length, ...data);
+                console.log(event_items, currentWeek)
                 generateCalendar(currentWeek);
-                return;});
-        });
+            })
+        })
     }
 });
-// listens for the submit form button
+// listens for the cancel form button
 document.querySelector('#cancel').addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('#event-input').style.display = "none";
@@ -472,17 +480,22 @@ document.querySelector('#add-event').addEventListener('click', (e)=> {
     const cancel_button = document.querySelector('#cancel');
     const delete_button = document.querySelector('#delete');
 
+    // sets the to/from time to the next hour & :00 minutes
     user_selector.value = null;
     const tempDate = new Date()
     const tempDur = (60 - tempDate.getMinutes()) * 60000;
     const defaultDate = addDurationTo(tempDate, tempDur);
 
-
+    // sets up elements
     labelEl.innerText = "Add Event";
     start_date.value = convertDateTo('reverse_date', defaultDate);
     start_time.value = convertDateTo('time_24hour', defaultDate);
     end_date.value = convertDateTo('reverse_date', addDurationTo(defaultDate, 900000));
     end_time.value = convertDateTo('time_24hour', addDurationTo(defaultDate, 900000));
+    user_selector.value = null;
+    event_notes.value = null;
+    titleEl.value = null;
+    onsite.checked = false;
     submit_button.innerText = "Add";
     cancel_button.innerText = "Close";
     delete_button.style.display = "none";

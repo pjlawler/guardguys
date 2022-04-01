@@ -1,3 +1,12 @@
+:root {
+    --header-color: #122c91;
+    --onsite-color: #2a6fdb;
+    --inclinic-color: #48d6d2;
+    --top-color: #81e9e6;
+    --today-color: #fefcbf;
+    
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,18 +16,39 @@
 
 header {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
 }
-header img {
-    height: 150px;
-    margin: 10px;
+
+header h1 {
+    font-size: 36px;
+    font-weight: normal;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 0;
+}
+
+.logo-wrapper img {
+    height: 100px;
+    margin: 20px;
+}
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.main-view {
+    flex: 1;
 }
 .week-selector {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 25px;
 }
 .selector-label {
     font-size: 12px;
@@ -56,11 +86,11 @@ header img {
     min-height: 85vh;
 }
 .event {
-    border: black solid 1px;
+    border: black solid 2px;
     align-items: center;
     padding: 10px;
     border-radius: 10px;
-    margin: 20px;
+    margin: 5px;
 }
 .event-header {
     display: flex;
@@ -68,14 +98,20 @@ header img {
 }
 .day-header {
     color: white;
-    background: blue;
+    background: var(--header-color);
     padding: 10px;
 }
 .day-header h2, .day-header h3 {
     text-align: center;
+    font-weight: normal;
 }
 .onsite {
-    background: greenyellow;
+    background: var(--onsite-color);
+    color: white;
+}
+.inclinic {
+    background:var(--inclinic-color);
+    color: black;
 }
 .event p {
     font-size: 14px;
@@ -83,7 +119,7 @@ header img {
 
 #event-input {
     margin: 25px;
-    border: solid 1px black;
+    border: solid 2px black;
     box-shadow: 2px 2px 5px;
     display: flex;
     flex-direction: column;
@@ -98,6 +134,13 @@ header img {
     margin-top: -275px;
     margin-left: -200px;
 }
+
+#form-label {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
 #event-title {
     padding: 5px;
 }
@@ -109,11 +152,9 @@ header img {
 .selector-group label {
     width: 5px;
 }
-
 #user-selector {
     padding: 5px;
     width: 125px;
-
 }
 
 #event-notes {
@@ -149,3 +190,12 @@ header img {
     background: tomato;
 }
 
+.past_day {
+    background: rgb(230, 222, 222);
+}
+.future_day {
+    background: white;
+}
+.this_day {
+    background: var(--today-color);
+}

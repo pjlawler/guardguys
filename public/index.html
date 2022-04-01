@@ -8,23 +8,34 @@
     <link rel="stylesheet" href="./stylesheets/style.css">
 </head>
 <body>
-    <header>
-        <img src="./assets/GuardGuys OnSITE Logo.png" alt="">
-        <div class="week-selector">
-            <div class="selector-label">week of</div>
-            <div class="week-window">
-                <button id="left-arrow">&LeftArrow;</button>
-                <div><p id="weekOf"></p></div>
-                <button id="right-arrow">&RightArrow;</button>
+    <div class="wrapper">
+        <header>
+            <div class="logo-wrapper">
+                <img src="./assets/GuardGuys OnSITE Logo.png" alt="">
+                <button id="add-event">New Event</button>
             </div>
-            <button id="current-week">Current Week</button>
+            <div class="nav-bar">
+                <h1>Appointment Schedule</h1>
+                <div class="week-selector">
+                    <div class="selector-label">week of</div>
+                    <div class="week-window">
+                        <button id="left-arrow">&LeftArrow;</button>
+                        <div><p id="weekOf"></p></div>
+                        <button id="right-arrow">&RightArrow;</button>
+                    </div>
+                    <button id="current-week">Current Week</button>
+                </div>    
+            </div>
+            </header>
+        <div class="main-view">
+
+
+
+
+
+            <section class="week-view"></section>
         </div>
-        <div>
-            <button id="add-event">New Event</button>
-        </div>
-    </header>
-    
-     <section class="week-view"></section>
+    </div>
 </body>
 
 <!-- Modal Input Form -->

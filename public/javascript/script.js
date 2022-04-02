@@ -4,6 +4,12 @@ const currentWeekEl = document.querySelector('#weekOf');
 const event_items = [];
 let editing_event;
 
+
+function init() {
+    currentWeekEl.innerText = convertDateTo('medium_date',get_weekOf_for(new Date()));
+    generateCalendar()
+}
+
 // Helper functions
 
 // Returns the id of the clicked event
@@ -96,6 +102,19 @@ const get_weekOf_for = (date) => {
     newDate.setDate(newDate.getDate() - weekday);
     return newDate;
 }
+// returns the sorted event objects for a particular day from the downloaded data
+const events = (date => {
+    medium_date = convertDateTo('medium_date', date);
+    days_events = event_items.filter(e => {
+        return convertDateTo('medium_date', e.date) === medium_date; 
+    })
+    .sort((a,b) => { 
+        if(a.date < b.date){return -1}
+        else if (a.date > b.date) {return 1}
+        return 0
+    });
+     return days_events
+});
 
 
 // gets the week's data from the database
@@ -194,29 +213,7 @@ async function load_users() {
 };
 
 
-function init() {
-    load_events()
-    .then((data) => {
-        event_items.length = 0;
-        event_items.splice(0, events.length, ...data);
-        generateCalendar(get_weekOf_for(new Date()));
-        return;
-    })
-}
-// returns the sorted event objects for a particular day from the downloaded data
-const events = (date => {
-    medium_date = convertDateTo('medium_date', date);
-    days_events = event_items.filter(e => {
-        return convertDateTo('medium_date', e.date) === medium_date; 
-    })
-    .sort((a,b) => { 
-        if(a.date < b.date){return -1}
-        else if (a.date > b.date) {return 1}
-        return 0
-    });
-     return days_events
-});
-// Returns the day column with the events inserted
+// returns the day column with the events
 function create_dayEl(date) {
     
     // Creates the needed elements
@@ -278,66 +275,36 @@ function create_dayEl(date) {
     
         return dayEl;
 }
-// Creates the overall weekView with 7 day columns
-function generateCalendar(start) {
+// creates the overall weekView with 7 day columns
+function generateCalendar() {
 
-    while(weekView.firstChild) {
-        weekView.removeChild(weekView.firstChild);
-    }
+    // gets the current weekof date from the window
+    const currentWeek = new Date(currentWeekEl.innerText);
 
-    currentWeekEl.innerText = convertDateTo('medium_date', start);
-    const calendarEl = document.createElement('div');
-    calendarEl.classList.add('calendar');
-
-    for(let i = 0; i < 7; i++) {
-        day_date = addDaysTo(start, i);
-        calendarEl.append(create_dayEl(day_date));
-    }
-
-    weekView.append(calendarEl);
-};
-// listens for a change of the week
-document.querySelector('.week-selector').addEventListener('click', event => {
-    console.log('week','click');
-
-    let currentWeek = new Date(currentWeekEl.innerText);
-
-    if(event.target.id === "left-arrow") {
-        currentWeek = addDaysTo(currentWeek, -7);
-    }
-    else if(event.target.id === 'right-arrow') {
-        currentWeek = addDaysTo(currentWeek, 7);
-    }
-    else if(event.target.id === 'current-week') {
-        currentWeek = get_weekOf_for(new Date());
-    }
-    else {
-        return;
-    }
+    // fetches the lastest events from the database
     load_events()
     .then((data) => {
+        // puts the events into the array
         event_items.length = 0;
         event_items.splice(0, events.length, ...data);
-        generateCalendar(currentWeek);
-        return;
-    });
-});
-
-
-// event actions (brings up modal)
-
-// edit event (event clicked)
-document.querySelector('.week-view').addEventListener('click', e => {
-    console.log('click submit')
-        e.preventDefault();
-        editing_event = clickedId(e.target);
-        display_modal();
-});
-// new event button clicked
-document.querySelector('#add-event').addEventListener('click', (e)=> {
-    e.preventDefault();
-    display_modal();
-});
+        
+        // clears out anything in the weekview div
+        while(weekView.firstChild) { weekView.removeChild(weekView.firstChild);}
+        
+        // creates the calendar dom element
+        const calendarEl = document.createElement('div');
+        calendarEl.classList.add('calendar');
+    
+        // adds each day of the week to the calendar
+        for(let i = 0; i < 7; i++) {
+            day_date = addDaysTo(currentWeek, i);
+            calendarEl.append(create_dayEl(day_date));
+        }
+        
+        // adds the calendar to the weekview div
+        weekView.append(calendarEl);
+    })
+};
 
 // displays pop up event edit form
 function display_modal() {
@@ -412,9 +379,45 @@ function display_modal() {
     });
 }
 
-// modal form button actions
+// Start of event listens
 
-// listens for the submit form button
+// change of the weekof date
+document.querySelector('.week-selector').addEventListener('click', event => {
+    console.log('week','click');
+
+    let currentWeek = new Date(currentWeekEl.innerText);
+
+    if(event.target.id === "left-arrow") {
+        currentWeek = addDaysTo(currentWeek, -7);
+    }
+    else if(event.target.id === 'right-arrow') {
+        currentWeek = addDaysTo(currentWeek, 7);
+    }
+    else if(event.target.id === 'current-week') {
+        currentWeek = get_weekOf_for(new Date());
+    }
+    else {
+        return;
+    }
+    load_events()
+    .then(() => {
+        currentWeekEl.innerText = convertDateTo('medium_date', currentWeek);
+        generateCalendar()
+    });
+});
+
+// edit an event (event clicked)
+document.querySelector('.week-view').addEventListener('click', e => {
+    e.preventDefault();
+    editing_event = clickedId(e.target);
+    if(editing_event) { display_modal()};
+});
+// new event button clicked
+document.querySelector('#add-event').addEventListener('click', (e)=> {
+    e.preventDefault();
+    display_modal();
+});
+// modal submit button clicked (add or update)
 document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -474,14 +477,7 @@ document.querySelector('#submit').addEventListener('click', (e) => {
         update_event(editing_event, event_data).then(() => {
             document.querySelector('#event-input').style.display = "none";
             editing_event = null;
-        })
-        .then(() => {
-            load_events().then((data) => {
-            event_items.length = 0;
-            event_items.splice(0, events.length, ...data);
-            generateCalendar(currentWeek);
-            return;});
-        });
+        }).then(generateCalendar);
     }
     else {
         // creates a new event
@@ -490,27 +486,16 @@ document.querySelector('#submit').addEventListener('click', (e) => {
         create_event(event_data).then(() => {
             document.querySelector('#event-input').style.display = "none"
             
-        })
-        .then(() => {
-            load_events().then((data) => {
-                event_items.length = 0
-                event_items.splice(0, events.length, ...data);
-                console.log(event_items, currentWeek)
-                generateCalendar(currentWeek);
-            })
-        })
+        }).then(generateCalendar)
     }
 });
-// listens for the cancel form button
+// modal close button clicked
 document.querySelector('#cancel').addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('#event-input').style.display = "none";
     editing_event = null;
-    console.log('cancel','click');
-
-    return;
 })
-// listens for the delete form button
+// modal delete button clicked
 document.querySelector('#delete').addEventListener('click', (e) => {
     e.preventDefault();
     const currentWeek = new Date(currentWeekEl.innerText);
@@ -518,16 +503,12 @@ document.querySelector('#delete').addEventListener('click', (e) => {
     document.querySelector('#event-input').style.display = "none";
     
     delete_event(editing_event).then(data => {
-            console.log('success')
             editing_event = null;
         })
-        .then(() => {
-        load_events().then((data) => {
-        event_items.length = 0;
-        event_items.splice(0, events.length, ...data);
-        generateCalendar(currentWeek);
-        return; })
-        });
+        .then(generateCalendar);
 });
+
+
+setInterval(generateCalendar, 1000)
 
 init();

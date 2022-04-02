@@ -16,7 +16,11 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    User.findAll()
+    User.findAll({
+        order: [
+            ['username']
+        ]
+    })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
         console.log(err);

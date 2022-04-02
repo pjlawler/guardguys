@@ -176,6 +176,20 @@ async function create_event(event_data) {
         return false;
     }
 }
+async function load_users() {
+    
+    const response = await fetch ("/api/users", {
+        method: 'get',
+        headers: {'Content-Type':'application/json'}
+    })
+
+    if(response.ok) {
+        const data = response.json()
+        return data;
+    }
+    
+    console.log('error')
+};
 
 
 function init() {
@@ -306,27 +320,57 @@ document.querySelector('.week-selector').addEventListener('click', event => {
         return;
     });
 });
-// listens for an event element being clicked, then displays the modal with the event data populated to it
+
+
+// event actions (brings up modal)
+
+// edit event (event clicked)
 document.querySelector('.week-view').addEventListener('click', e => {
     console.log('click submit')
         e.preventDefault();
         editing_event = clickedId(e.target);
-        console.log(editing_event);
-        if(editing_event) {
-            document.querySelector('#event-input').style.display = "flex";    
-            const labelEl = document.querySelector('#form-label');
-            const titleEl = document.querySelector('#event-title');
-            const start_date = document.querySelector('#start-date');
-            const start_time = document.querySelector('#start-time');
-            const end_date = document.querySelector('#end-date');
-            const end_time = document.querySelector('#end-time');
-            const onsite = document.querySelector('#onsite-selector');
-            const user_selector = document.querySelector('#user-selector');
-            const event_notes = document.querySelector('#event-notes');
-            const submit_button = document.querySelector('#submit');
-            const cancel_button = document.querySelector('#cancel');
-            const delete_button = document.querySelector('#delete');
+        display_modal();
+});
+// new event button clicked
+document.querySelector('#add-event').addEventListener('click', (e)=> {
+    e.preventDefault();
+    display_modal();
+});
 
+// displays pop up event edit form
+function display_modal() {
+    
+    document.querySelector('#event-input').style.display = "flex";    
+    
+    const labelEl = document.querySelector('#form-label');
+    const titleEl = document.querySelector('#event-title');
+    const start_date = document.querySelector('#start-date');
+    const start_time = document.querySelector('#start-time');
+    const end_date = document.querySelector('#end-date');
+    const end_time = document.querySelector('#end-time');
+    const onsite = document.querySelector('#onsite-selector');
+    const user_selector = document.querySelector('#user-selector');
+    const event_notes = document.querySelector('#event-notes');
+    const submit_button = document.querySelector('#submit');
+    const cancel_button = document.querySelector('#cancel');
+    const delete_button = document.querySelector('#delete');
+
+    // need to load users into the dropdown
+    load_users().then(users => {
+
+        const user_selectorEl = document.querySelector('#user-selector');
+        while(user_selector.firstChild) {
+            user_selector.remove(user_selector.firstChild);
+        }
+        users.forEach(user => {
+            const optionEl = document.createElement('option');
+            optionEl.setAttribute('value', user.id);
+            optionEl.innerText = user.username;
+            user_selectorEl.append(optionEl);
+        });
+        
+        if(editing_event) {
+            // populates the event data being edited into the modal
             load_event(editing_event).then(e => {
                 labelEl.innerText = "Event Details"
                 titleEl.value = e.event;
@@ -341,13 +385,37 @@ document.querySelector('.week-view').addEventListener('click', e => {
                 cancel_button.innerText = "Close"
                 delete_button.style.display = "block"
             });
+        } else {
+            // sets the to/from time to the next hour & :00 minutes
+            user_selector.value = null;
+            const tempDate = new Date()
+            const tempDur = (60 - tempDate.getMinutes()) * 60000;
+            const defaultDate = addDurationTo(tempDate, tempDur);
+    
+            // sets up elements
+            labelEl.innerText = "Add Event";
+            start_date.value = convertDateTo('reverse_date', defaultDate);
+            start_time.value = convertDateTo('time_24hour', defaultDate);
+            end_date.value = convertDateTo('reverse_date', addDurationTo(defaultDate, 900000));
+            end_time.value = convertDateTo('time_24hour', addDurationTo(defaultDate, 900000));
+            user_selector.value = null;
+            event_notes.value = null;
+            titleEl.value = null;
+            onsite.checked = false;
+            submit_button.innerText = "Add";
+            cancel_button.innerText = "Close";
+            delete_button.style.display = "none";
+            titleEl.focus();
         }
-});
+    });
+}
+
+// modal form button actions
+
 // listens for the submit form button
 document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
 
-    const labelEl = document.querySelector('#form-label');
     const titleEl = document.querySelector('#event-title');
     const start_date = document.querySelector('#start-date');
     const start_time = document.querySelector('#start-time');
@@ -356,10 +424,6 @@ document.querySelector('#submit').addEventListener('click', (e) => {
     const onsite = document.querySelector('#onsite-selector');
     const user_selector = document.querySelector('#user-selector');
     const event_notes = document.querySelector('#event-notes');
-    const submit_button = document.querySelector('#submit');
-    const cancel_button = document.querySelector('#cancel');
-    const delete_button = document.querySelector('#delete');
-
 
     if(!titleEl.value) {
         alert("You must include a name of for the event!");
@@ -400,7 +464,7 @@ document.querySelector('#submit').addEventListener('click', (e) => {
         notes: event_notes.value,
         user_id: user_selector.value ? user_selector.value : null
     }
-    
+   
 
     if(editing_event) {
         // updates the event
@@ -463,43 +527,9 @@ document.querySelector('#delete').addEventListener('click', (e) => {
         return; })
         });
 });
-// listens for the add event button
-document.querySelector('#add-event').addEventListener('click', (e)=> {
-    e.preventDefault();
-    document.querySelector('#event-input').style.display = "flex";    
-    const labelEl = document.querySelector('#form-label');
-    const titleEl = document.querySelector('#event-title');
-    const start_date = document.querySelector('#start-date');
-    const start_time = document.querySelector('#start-time');
-    const end_date = document.querySelector('#end-date');
-    const end_time = document.querySelector('#end-time');
-    const onsite = document.querySelector('#onsite-selector');
-    const user_selector = document.querySelector('#user-selector');
-    const event_notes = document.querySelector('#event-notes');
-    const submit_button = document.querySelector('#submit');
-    const cancel_button = document.querySelector('#cancel');
-    const delete_button = document.querySelector('#delete');
 
-    // sets the to/from time to the next hour & :00 minutes
-    user_selector.value = null;
-    const tempDate = new Date()
-    const tempDur = (60 - tempDate.getMinutes()) * 60000;
-    const defaultDate = addDurationTo(tempDate, tempDur);
 
-    // sets up elements
-    labelEl.innerText = "Add Event";
-    start_date.value = convertDateTo('reverse_date', defaultDate);
-    start_time.value = convertDateTo('time_24hour', defaultDate);
-    end_date.value = convertDateTo('reverse_date', addDurationTo(defaultDate, 900000));
-    end_time.value = convertDateTo('time_24hour', addDurationTo(defaultDate, 900000));
-    user_selector.value = null;
-    event_notes.value = null;
-    titleEl.value = null;
-    onsite.checked = false;
-    submit_button.innerText = "Add";
-    cancel_button.innerText = "Close";
-    delete_button.style.display = "none";
-    titleEl.focus();
-});
+
+
 
 init();

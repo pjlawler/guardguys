@@ -1,4 +1,3 @@
-
 const weekView = document.querySelector('.week-view')
 const currentWeekEl = document.querySelector('#weekOf');
 const currentDateEl = document.querySelector('.date');
@@ -8,13 +7,11 @@ const currentDayEl = document.querySelector('.day');
 const event_items = [];
 let editing_event;
 
-
 function init() {
     currentWeekEl.innerText = convertDateTo('medium_date',get_weekOf_for(new Date()));
     updateClock();
     generateCalendar();
 }
-
 // Helper functions
 
 // Returns the id of the clicked event
@@ -120,15 +117,12 @@ const events = (date => {
     });
      return days_events
 });
-
-
 const updateClock = () => {
     const now = new Date()
     currentDateEl.innerText = convertDateTo('medium_date', now);
     currentTimeEl.innerText = convertDateTo('time_12hour', now);
     currentDayEl.innerText = convertDateTo('weekday_name', now);
 }
-
 
 // gets the week's data from the database
 async function load_events() {
@@ -224,6 +218,17 @@ async function load_users() {
     
     console.log('error')
 };
+async function logout() {
+    const response = await fetch('/api/users/logout', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json'}
+    });
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert(response.statusText);
+    }
+}
 
 // returns the day column with the events
 function create_dayEl(date) {
@@ -317,6 +322,8 @@ function generateCalendar() {
         weekView.append(calendarEl);
     })
 };
+
+
 // displays pop up event edit form
 function display_modal() {
     
@@ -399,7 +406,6 @@ function display_modal() {
         }
     });
 }
-
 // Start of event listens
 
 // change of the weekof date
@@ -513,6 +519,8 @@ document.querySelector('#delete').addEventListener('click', (e) => {
         })
         .then(generateCalendar);
 });
+// logout button clicked
+document.querySelector('#logout').addEventListener('click', logout);
 
 setInterval(() => {
     updateClock();

@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./stylesheets/style.css">
-</head>
-<body>
-    <div class="wrapper">
+ <div class="wrapper">
         <header>
             <div class="logo-wrapper">
                 <a href="/public/admin.html"><img src="./assets/GuardGuys OnSITE Logo.png" alt=""></a>
@@ -29,21 +19,15 @@
                         <button id="right-arrow">&RightArrow;</button>
                     </div>
                     <button id="current-week">Current Week</button>
-                </div>    
+                         <br>
+                 <p>Logged in as {{session.username}} - <button id="logout">logout</button></p>
+                </div>
             </div>
             </header>
-        <div class="main-view">
-
-
-
-
-
+        <div class="main-view">            
             <section class="week-view"></section>
         </div>
     </div>
-</body>
-
-<!-- Modal Input Form -->
 <form id="event-input">
     <h2 id="form-label">Edit Details</h2>
     <label for="event-title">Event</label>
@@ -79,7 +63,9 @@
         <button id="delete">Delete</button>
     </div>
 </form>
+<script src="/javascript/script.js"></script>
 
 
-<script src="./javascript/script.js"></script>
-</html>
+
+
+

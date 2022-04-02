@@ -1,13 +1,18 @@
 
 const weekView = document.querySelector('.week-view')
 const currentWeekEl = document.querySelector('#weekOf');
+const currentDateEl = document.querySelector('.date');
+const currentTimeEl = document.querySelector('.time');
+const currentDayEl = document.querySelector('.day');
+
 const event_items = [];
 let editing_event;
 
 
 function init() {
     currentWeekEl.innerText = convertDateTo('medium_date',get_weekOf_for(new Date()));
-    generateCalendar()
+    updateClock();
+    generateCalendar();
 }
 
 // Helper functions
@@ -117,6 +122,14 @@ const events = (date => {
 });
 
 
+const updateClock = () => {
+    const now = new Date()
+    currentDateEl.innerText = convertDateTo('medium_date', now);
+    currentTimeEl.innerText = convertDateTo('time_12hour', now);
+    currentDayEl.innerText = convertDateTo('weekday_name', now);
+}
+
+
 // gets the week's data from the database
 async function load_events() {
     
@@ -212,7 +225,6 @@ async function load_users() {
     console.log('error')
 };
 
-
 // returns the day column with the events
 function create_dayEl(date) {
     
@@ -305,7 +317,6 @@ function generateCalendar() {
         weekView.append(calendarEl);
     })
 };
-
 // displays pop up event edit form
 function display_modal() {
     
@@ -405,7 +416,6 @@ document.querySelector('.week-selector').addEventListener('click', event => {
         generateCalendar()
     });
 });
-
 // edit an event (event clicked)
 document.querySelector('.week-view').addEventListener('click', e => {
     e.preventDefault();
@@ -508,7 +518,9 @@ document.querySelector('#delete').addEventListener('click', (e) => {
         .then(generateCalendar);
 });
 
-
-setInterval(generateCalendar, 1000)
+setInterval(() => {
+    updateClock();
+    generateCalendar();
+}, 1000)
 
 init();

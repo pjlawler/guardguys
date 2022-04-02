@@ -16,7 +16,7 @@
 
 header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 20px;
     background: white;
@@ -25,6 +25,32 @@ header {
 header h1 {
     font-size: 36px;
     font-weight: normal;
+}
+
+.current-datetime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--header-color);
+}
+
+.current-datetime .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.current-datetime .time {
+    font-size: 50px;
+    color: white
+}
+
+.current-datetime .date, .current-datetime .day {
+    font-size: 20px;
+    color: white;
 }
 
 .logo-wrapper {

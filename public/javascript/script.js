@@ -96,7 +96,9 @@ const get_weekOf_for = (date) => {
     newDate.setDate(newDate.getDate() - weekday);
     return newDate;
 }
-// gets the week's events from the database
+
+
+// gets the week's data from the database
 async function load_events() {
     
     const response = await fetch ("/api/events", {
@@ -410,6 +412,7 @@ function display_modal() {
     });
 }
 
+
 // modal form button actions
 
 // listens for the submit form button
@@ -458,7 +461,7 @@ document.querySelector('#submit').addEventListener('click', (e) => {
  
     const event_data = {
         event: titleEl.value,
-        date: `${start_date.value}  ${start_time.value}`,
+        date: event_start,
         duration: event_duration,
         onsite: onsite.checked,
         notes: event_notes.value,
@@ -527,9 +530,5 @@ document.querySelector('#delete').addEventListener('click', (e) => {
         return; })
         });
 });
-
-
-
-
 
 init();

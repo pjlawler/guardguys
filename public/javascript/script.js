@@ -412,7 +412,6 @@ function display_modal() {
     });
 }
 
-
 // modal form button actions
 
 // listens for the submit form button

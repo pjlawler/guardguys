@@ -328,9 +328,17 @@ function display_modal() {
     load_users().then(users => {
 
         const user_selectorEl = document.querySelector('#user-selector');
-        while(user_selector.firstChild) {
-            user_selector.remove(user_selector.firstChild);
-        }
+
+        // removes any previous users
+        while(user_selector.firstChild) { user_selector.remove(user_selector.firstChild); }
+
+        // adds a no selection option to users
+        const optionEl = document.createElement('option');
+        optionEl.setAttribute('value', "");
+        optionEl.innerText = "- none -";
+        user_selectorEl.append(optionEl);
+
+        // adds each user to the drop down
         users.forEach(user => {
             const optionEl = document.createElement('option');
             optionEl.setAttribute('value', user.id);
@@ -341,6 +349,8 @@ function display_modal() {
         if(editing_event) {
             // populates the event data being edited into the modal
             load_event(editing_event).then(e => {
+
+                // sets up elements
                 labelEl.innerText = "Event Details"
                 titleEl.value = e.event;
                 start_date.value = convertDateTo('reverse_date', e.date);
@@ -383,34 +393,22 @@ function display_modal() {
 
 // change of the weekof date
 document.querySelector('.week-selector').addEventListener('click', event => {
-    console.log('week','click');
 
     let currentWeek = new Date(currentWeekEl.innerText);
 
-    if(event.target.id === "left-arrow") {
-        currentWeek = addDaysTo(currentWeek, -7);
-    }
-    else if(event.target.id === 'right-arrow') {
-        currentWeek = addDaysTo(currentWeek, 7);
-    }
-    else if(event.target.id === 'current-week') {
-        currentWeek = get_weekOf_for(new Date());
-    }
-    else {
-        return;
-    }
-    load_events()
-    .then(() => {
-        currentWeekEl.innerText = convertDateTo('medium_date', currentWeek);
-        generateCalendar()
-    });
-});
+    if(event.target.id === "left-arrow") { currentWeek = addDaysTo(currentWeek, -7); }
+    else if(event.target.id === 'right-arrow') { currentWeek = addDaysTo(currentWeek, 7); }
+    else if(event.target.id === 'current-week') { currentWeek = get_weekOf_for(new Date()); }
+    else { return; }
 
+    currentWeekEl.innerText = convertDateTo('medium_date', currentWeek);
+    load_events().then(generateCalendar);
+});
 // edit an event (event clicked)
 document.querySelector('.week-view').addEventListener('click', e => {
     e.preventDefault();
     editing_event = clickedId(e.target);
-    if(editing_event) { display_modal()};
+    if(editing_event) { display_modal() };
 });
 // new event button clicked
 document.querySelector('#add-event').addEventListener('click', (e)=> {
@@ -469,23 +467,20 @@ document.querySelector('#submit').addEventListener('click', (e) => {
         notes: event_notes.value,
         user_id: user_selector.value ? user_selector.value : null
     }
-   
+    const event_date = new Date(event_start)
+    currentWeekEl.innerText = convertDateTo('medium_date',get_weekOf_for(event_date));
 
     if(editing_event) {
         // updates the event
-        const currentWeek = new Date(currentWeekEl.innerText);
         update_event(editing_event, event_data).then(() => {
             document.querySelector('#event-input').style.display = "none";
             editing_event = null;
         }).then(generateCalendar);
     }
     else {
-        // creates a new event
-        const event_date = new Date(event_start);
-        const currentWeek = new Date(get_weekOf_for(event_date));
+        // creates a new event   
         create_event(event_data).then(() => {
             document.querySelector('#event-input').style.display = "none"
-            
         }).then(generateCalendar)
     }
 });

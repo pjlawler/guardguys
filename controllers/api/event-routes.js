@@ -31,7 +31,8 @@ router.get('/', (req, res) => {
     .then(dbEventData => res.json(dbEventData))
     .catch(err => {
         console.log(err);
-        res.status(500).json(err)
+        // res.status(500).json(err)
+        res.status(501).json({message: 'error in event get all'})
     });
 });
 router.get('/:id', (req, res) => {
@@ -51,7 +52,8 @@ router.get('/:id', (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        // res.status(500).json(err);
+        res.status(501).json({message: 'error in event get one'})
     });
 });
 

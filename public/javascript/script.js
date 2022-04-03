@@ -522,9 +522,9 @@ document.querySelector('#delete').addEventListener('click', (e) => {
 // logout button clicked
 document.querySelector('#logout').addEventListener('click', logout);
 
-// setInterval(() => {
-//     updateClock();
-//     generateCalendar();
-// }, 1000)
+setInterval(() => {
+    updateClock();
+    generateCalendar();
+}, 1000)
 
 init();

@@ -98,18 +98,18 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-// router.get('/', (req, res) => {
-//     User.findAll({
-//         order: [
-//             ['username']
-//         ]
-//     })
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// });
+router.get('/', (req, res) => {
+    User.findAll({
+        order: [
+            ['username']
+        ]
+    })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {

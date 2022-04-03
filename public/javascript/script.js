@@ -87,6 +87,8 @@ const convertDateTo = (format, date) => {
             return dayname[weekday].long;
         case 'weekday_name_short':
             return dayname[weekday].short;
+        default:
+            return false;
     }
 }
 const addDaysTo = (date, days) => {

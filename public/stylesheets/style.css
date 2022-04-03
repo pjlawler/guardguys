@@ -20,6 +20,7 @@ header {
     justify-content: space-between;
     padding: 20px;
     background: white;
+    border: solid 1px black;
 }
 
 header h1 {
@@ -143,7 +144,7 @@ header h1 {
     font-size: 14px;
 }
 
-#event-input {
+#event-input, .login-form {
     margin: 25px;
     border: solid 2px black;
     box-shadow: 2px 2px 5px;
@@ -230,14 +231,9 @@ header h1 {
 /* Login page */
 
 .login-form {
-    width: 250px;
     display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    margin-left: 50px;
-    margin-top: 50px;
-    padding: 10px;
-
+    margin-top: -200px;
+    margin-left: -200px;
 }
 .login-form button {
     height: 40px;
@@ -248,4 +244,8 @@ header h1 {
 .login-form input {
   width: 100%;
   height: 40px;
+}
+
+#logout {
+    padding: 2px;
 }

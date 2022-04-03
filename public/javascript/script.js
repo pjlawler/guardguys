@@ -100,9 +100,9 @@ const addDurationTo = (date, duration) => {
 // returns the date for the monday of the date 
 const get_weekOf_for = (date) => {
     const newDate = date;
-    const weekday = newDate.getDay() - 1;
-    newDate.setDate(newDate.getDate() - weekday);
-    return newDate;
+    const  weekday = newDate.getDay();
+    const daysBack = weekday === 0 ? 6 : weekday - 1;
+    return addDaysTo(date, -daysBack);
 }
 // returns the sorted event objects for a particular day from the downloaded data
 const events = (date => {
@@ -522,9 +522,9 @@ document.querySelector('#delete').addEventListener('click', (e) => {
 // logout button clicked
 document.querySelector('#logout').addEventListener('click', logout);
 
-setInterval(() => {
-    updateClock();
-    generateCalendar();
-}, 1000)
+// setInterval(() => {
+//     updateClock();
+//     generateCalendar();
+// }, 1000)
 
 init();

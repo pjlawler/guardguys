@@ -9,14 +9,14 @@ router.get('/admin', (req, res) => {
     res.render('admin');
 });
 
-// router.get('/', (req, res) => {
-//     if(req.session.loggedIn) {
-//         res.render('homepage', req);    
-//     }
-//     else {
-//         res.render('login');
-//     }
+router.get('/', (req, res) => {
+    if(req.session.loggedIn) {
+        res.render('homepage', req);    
+    }
+    else {
+        res.render('login');
+    }
     
-// });
+});
 
 module.exports = router;

@@ -525,3 +525,5 @@ document.querySelector('#delete').addEventListener('click', (e) => {
 document.querySelector('#logout').addEventListener('click', logout);
 
 init();
+
+setInterval(updateClock, 1000);

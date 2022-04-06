@@ -9,19 +9,6 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <div class="logo-wrapper">
-        <a href="/public/admin.html"><img src="./assets/GuardGuys OnSITE Logo.png" alt=""></a>
-        <div class="nav-items">
-            {{#if session.isAdmin}}
-                <button id="admin" class="nav-button">admin</button>
-                <button id="dashboard" class="nav-button">dashboard</button>
-            {{/if}}
-            {{#if session.loggedIn}}
-                <button id="logout" class="nav-button">logout</button>
-                <p>Logged in as <a href="#">{{session.username}}</a></p>         
-            {{/if}}
-        </div>
-    </div>
     {{{ body }}}
 </body>
 

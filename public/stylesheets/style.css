@@ -58,12 +58,13 @@ header {
     justify-content: space-between;
     padding: 20px;
     background: white;
-    border: solid 1px black;
 }
 
-header h1 {
-    font-size: 36px;
-    font-weight: normal;
+
+
+.line {
+    margin: 0 auto;
+    border-bottom: 2px solid var(--header-color);
 }
 
 .current-datetime {
@@ -106,6 +107,11 @@ header h1 {
 .page-title {
     display: flex;
     align-items: center;
+}
+
+.page-title h1 {
+    font-size: 36px;
+    font-weight: normal;
 }
 
 .week-controls {
@@ -271,6 +277,13 @@ header h1 {
     background: var(--today-color);
 }
 
+.center-page {
+    position: fixed; /* Stay in place */
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
 
 /* Login page */
 

@@ -60,7 +60,6 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
-
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -128,5 +127,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
 
 module.exports = router;

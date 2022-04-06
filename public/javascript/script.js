@@ -22,6 +22,11 @@ const clickedId = (element => {
     }
     return element.dataset.id;
 })
+
+const week_of = () => {
+    return convertDateTo('reverse_date', currentWeekEl.innerText);
+}
+
 // Converts a date object to a formatted date or time string
 const convertDateTo = (format, date) => {
     const date_object = new Date(date);
@@ -109,15 +114,9 @@ const get_weekOf_for = (date) => {
 // returns the sorted event objects for a particular day from the downloaded data
 const events = (date => {
     medium_date = convertDateTo('medium_date', date);
-    days_events = event_items.filter(e => {
+    return event_items.filter(e => {
         return convertDateTo('medium_date', e.date) === medium_date; 
-    })
-    .sort((a,b) => { 
-        if(a.date < b.date){return -1}
-        else if (a.date > b.date) {return 1}
-        return 0
     });
-     return days_events
 });
 const updateClock = () => {
     const now = new Date()
@@ -129,7 +128,7 @@ const updateClock = () => {
 // gets the week's data from the database
 async function load_events() {
     
-    const response = await fetch ("/api/events", {
+    const response = await fetch (`/api/events/weekof/${week_of()}`, {
         method: 'get',
         headers: {'Content-Type':'application/json'}
     })

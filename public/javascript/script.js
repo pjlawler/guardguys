@@ -411,7 +411,7 @@ function display_modal() {
 // Start of event listens
 
 // change of the weekof date
-document.querySelector('.week-selector').addEventListener('click', event => {
+document.querySelector('.week-controls').addEventListener('click', event => {
 
     let currentWeek = new Date(currentWeekEl.innerText);
 
@@ -513,13 +513,15 @@ document.querySelector('#cancel').addEventListener('click', (e) => {
 document.querySelector('#delete').addEventListener('click', (e) => {
     e.preventDefault();
     const currentWeek = new Date(currentWeekEl.innerText);
+    if(confirm("Delete event?")) {
+        document.querySelector('#event-input').style.display = "none";
     
-    document.querySelector('#event-input').style.display = "none";
-    
-    delete_event(editing_event).then(data => {
-            editing_event = null;
-        })
-        .then(generateCalendar);
+        delete_event(editing_event).then(data => {
+                editing_event = null;
+            })
+            .then(generateCalendar);
+    }
+
 });
 // logout button clicked
 document.querySelector('#logout').addEventListener('click', logout);

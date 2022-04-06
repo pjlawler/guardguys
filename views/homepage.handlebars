@@ -1,28 +1,29 @@
  <div class="wrapper">
         <header>
-            <div class="logo-wrapper">
-                <a href="/public/admin.html"><img src="./assets/GuardGuys OnSITE Logo.png" alt=""></a>
-                <button id="add-event">New Event</button>
-            </div>
-            <div class="current-datetime">
-                <p class="day">Monday</p>
-                <p class="time">7:00am</p>
-                <p class="date">4/4/2022</p>
-            </div>
-            <div class="nav-bar">
-                <h1>Appointment Schedule</h1>
-                <div class="week-selector">
-                    <div class="selector-label">displaying week of</div>
-                    <div class="week-window">
-                        <button id="left-arrow">&LeftArrow;</button>
-                        <div><p id="weekOf"></p></div>
-                        <button id="right-arrow">&RightArrow;</button>
-                    </div>
-                    <button id="current-week">Current Week</button>
-                         <br>
-                 <p>Logged in as {{session.username}} - <button id="logout">logout</button></p>
+                <div class="page-title">
+                    <h1>Appointment Scheduler</h1>
+                    <button id="add-event" class="nav-button">new event</button>
                 </div>
-            </div>
+                <div>
+                    
+                    <div class="current-datetime">
+                        <p class="day">Monday</p>
+                        <p class="time">7:00am</p>
+                        <p class="date">4/4/2022</p>
+                    </div>
+                    <div class="week-controls">
+                        <div class="week-selector">
+                            <div class="selector-label">displaying week of</div>
+                            <div class="week-window">
+                                <button id="left-arrow">&LeftArrow;</button>
+                                <div><p id="weekOf"></p></div>
+                                <button id="right-arrow">&RightArrow;</button>
+                            </div>
+                        </div>
+                        <button id="current-week" class="nav-button">this week</button>
+                    </div>
+
+                </div>
             </header>
         <div class="main-view">            
             <section class="week-view"></section>

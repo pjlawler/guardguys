@@ -13,7 +13,7 @@ const hbs = exphbs.create({});
 
 const sess = {
   secret: 'doordonotthereisnotry',
-  cookie: {},
+  cookie: { maxAge: 64800000 },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

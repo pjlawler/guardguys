@@ -1,86 +1,140 @@
-<div class="logo-wrapper">
-    <a href="/public/admin.html"><img src="./assets/GuardGuys OnSITE Logo.png" alt=""></a>
-    <div class="nav-items">
-        {{#if session.isAdmin}}
-            <button id="admin" class="nav-button">admin</button>
-            <button id="dashboard" class="nav-button">dashboard</button>
-        {{/if}}
-        {{#if session.loggedIn}}
-            <button id="logout" class="nav-button">logout</button>
-            <p>Logged in as <a href="#">{{session.username}}</a></p>         
-        {{/if}}
+
+{{>navbar}}
+<div class="container">
+  <img src="/assets/images/roof-top-cropped.png" class="img-fluid" alt="">
+  <div class="jumbotron">
+    <h1 class="text-center"></h1>
+      <br>
+      <p class="main_text">Guard Guys’ OnSITE Drug Testing and Consulting is a local, VA certified, Veteran Owned Small Business dedicated to helping Individuals, small businesses, national chains, and professional firms to customize services to meet their unique needs. We have you covered in the areas of Lab Services, DNA Testing, Health Care, Manufacturing, DOT, FAA and other safety-sensitive positions to stay in compliance with industry specific guidelines and regulations. For over 12 years, we have excelled in exceptional customer focused services for a variety of clients in Minnesota and across the nation.
+
+Contact us now for testing services.
+        
+        
+        Here are some of services that we provide:
+      <br>
+      <ul class="list_text">
+        <li><strong>Drug/Alcohol Screenings</strong> - our tests will detect drug and alcohol usage levels in all mediums including urine, saliva, breath, blood, and hair. Instant results are available with certain types of screenings. In addition to providing testing for individual purposes such as family and court actions, we provide orginzations with pre-employment, random, post-accident and for reasonable suspicion situations</li>
+        <li><strong>Background Checks</strong> - we offer searches to check individuals' state driving records, federal, state, county criminal histories, SSN & alias tracing, credit and eviction history.</li>
+        <li><strong>DOT Physicals</strong> - we have a certified doctor on staff that provides exams for DOT medical cards</li>
+        <li><strong>DNA Testing</strong> - legal, immigration, paternity and pre-natal gender identification</li>
+        <li><strong>TB Screening</strong> - QuantiFERON Gold</li>
+        <li><strong>COVID-19 Screening</strong> - rapid antigen, antibody and PCR</li>
+        <li><strong>Training</strong> - for supervisors and program managers</li>
+      </ul>
+
+
+  <h3 class="text-center">Find out more infomation</h3>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Walk-in Clinic
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse border" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body d-flex">
+            <span class="material-icons accordion-icon">home_work</span>
+            <div class="body-text">
+              <p class="lead">
+                <div class="container bg-primary text-white"><h6 class="h4 text-center">NO APPOINTMENTS NECESSARY!</h6></div>         
+                Conveniently located on County Road C West just off of I-35E, our Little Canada location is open for immediate walk-in services. We have a no-wait guarantee for our services - the average time our customers spend in our clinic to be seen and tested is less than 10-minutes!
+              <br>
+              <br> 
+              Our staff are customer-service fanatics, you and/or your employees will always be treated with dignity and respect!</p>
+              <ul>
+                  <li><a><strong>Hours: </strong> Monday through Friday; 8am - 5pm</a></li>
+                  <li><a><strong>Location: </strong><a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/qyDyQCDoYto4To626">70 County Road C West #702, Little Canada, MN 55117</a></li>
+                  <li><p><em>We have ample parking out front and can also accommodate semi-trailer trucks in our back parking lot.</em></p></li>
+              </ul>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          OnSITE Mobile Service
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse border" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body d-flex">
+          <span class="material-icons accordion-icon">location_on</span>
+          <div class="body-text">
+            <p class="lead"> 
+              <div class="container bg-primary text-white"><h6 class="h4 text-center">SAVE MONEY BY HAVING US COME TO YOU!</h6></div>
+              
+              All testing/screenings that we provide in our clinic are also available to be conducted OnSITE by one of our fast and friendly mobile collectors. It's the same testing, we simply charge a $198 fee to bring our services anywhere within the 7-county Minneapolis/St Paul metro area. <em>For travel outside the metro area or if an extended length onsite (more than 1-hour) is required, we change an additional $99/hour.</em>
+            <br><br>
+            Having us go directly to where your employees are working allows them to have minimal down-time as we work within their schedule!</p>
+          </div>    
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          24/7 Emergency Callout
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body d-flex">
+          <span class="material-icons accordion-icon">update</span>
+          <div class="body-text">
+            <p class="lead">
+              <div class="container bg-primary text-white"><h6 class="h4 text-center">WE ARE ON-CALL 24/7 FOR YOU!</h6></div>
+              
+              To meet your company's saftey workplace policies and federal regulatory requirements, our technicians are on-call 24/7 to provide emergency callout services. Typically we are called out after hours to conduct post-accident or reasonable suspicion drug and alcohol screenings.  
+            <br><br>
+            Our afterhours fee is $297 to respond to any location within the 7-county metro area with a 2-hour response time. <em>For travel outside the metro area or if an extended length onsite (more than 1-hour) is required, an additional $99/hour is charged.</em> <strong>When you call after-hours you will speak directly to one of our technicians, not an answering serivce.</strong>
+            <br><br>
+            To reach an afterhours on-call technician call our main number (651)274-1756 and press #1.</p>
+          </div>    
+        </div>
+    </div>
+  </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+          Program Management
+        </button>
+      </h2>
+      <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body d-flex">
+          <span class="material-icons accordion-icon">fact_check</span>
+          <div class="body-text">
+            <p class="lead">
+              <div class="container bg-primary text-white"><h6 class="h4 text-center">TURN TO US FOR CUSTOMIZED PLANS. LET US DO THE WORK!</h6></div>
+              
+              To provide the ultimate in customer service we provide several levels of program management by though customized partnerships with clients.  These customized agreements can be as simple as a pricing plan to us completely managing your drug/alcohol program</p>
+              <ul>
+                <li>Customized Service Agreements</li>
+                <li>Guaranteed Pricing Plans</li>
+                <li>Random Drug Testing Pools/Selections</li>
+                <li>Customized Training</li>
+                <li>Scheduled Collections Times</li>
+              </ul>
+              <p class="lead">All of our partners have immediate access to their individual testing results/status via our online portal.</p>
+          </div>    
+        </div>
+    </div>
+  </div>
+    <hr class="my-4">
+      
+    
+    <hr class="my-4">  
+    <div class="container d-flex flex-wrap">
+        <a class="btn btn-primary btn-lg flex-grow-1 border" href="/pricing" role="button">Pricing</a>
+        <a class="btn btn-primary btn-lg flex-grow-1 border" href="/dot-services" role="button">DOT Services</a>
+        <a class="btn btn-primary btn-lg flex-grow-1 border" href="/about-us" role="button">About Us</a>
+    </div>
+  </div>
+  </div>
+  <hr class="my-4">
+  <h3 class="text-center">Here's what our customers are saying</h3>
+  <div class="elfsight-app-eb67281a-578a-4d47-b385-d48589e1be0a google-review"></div>
+
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/14548190.js"></script>
+  </body>
 </div>
-
-<div class="line"></div> 
-
-<div class="wrapper">
-    <header>
-        <div class="page-title">
-            <h1>Appointment Scheduler</h1>
-            <button id="add-event" class="nav-button">new event</button>
-        </div>
-        <div>
-            <div class="current-datetime">
-                <p class="day">Monday</p>
-                <p class="time">7:00am</p>
-                <p class="date">4/4/2022</p>
-            </div>
-            <div class="week-controls">
-                <div class="week-selector">
-                    <div class="selector-label">displaying week of</div>
-                    <div class="week-window">
-                        <button id="left-arrow">&LeftArrow;</button>
-                        <div><p id="weekOf"></p></div>
-                        <button id="right-arrow">&RightArrow;</button>
-                    </div>
-                </div>
-                <button id="current-week" class="nav-button">this week</button>
-            </div>
-        </div>
-    </header>
-    <div class="main-view">            
-        <section class="week-view"></section>
-    </div>
-</div>
-<form id="event-input">
-    <h2 id="form-label">Edit Details</h2>
-    <label for="event-title">Event</label>
-    <input type="text" name="" id="event-title">
-    <div>
-        <div class="selector-group">
-            <label for="start-date">Start</label>
-            <input id="start-date" class="date-selector" type="date">    
-            <input id="start-time" class="time-selector" type="time">       
-        </div>
-        <div class="selector-group">
-            <label for="start-date">End</label>
-            <input id="end-date" class="date-selector" type="date">    
-            <input id="end-time" class="time-selector" type="time">
-        </div>
-        <div class="assigned-line">
-            <div>
-                <label for="onsite-selector">OnSITE</label>
-                <input type="checkbox" name="onsite-selector" id="onsite-selector">    
-            </div>
-            <div>
-                <label for="user-selector">Assigned to</label>
-                <select id="user-selector"></select>        
-            </div>
-        </div>
-    </div>
-
-    <label for="event-notes">Notes</label>
-    <textarea name="" id="event-notes" cols="30" rows="5"></textarea>
-    <div class="button-group">
-        <button id="submit">Submit</button>
-        <button id="cancel">Cancel</button>
-        <button id="delete">Delete</button>
-    </div>
-</form>
-<script src="/javascript/script.js"></script>
-
-
-
-
-
+{{>footer}}

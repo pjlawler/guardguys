@@ -4,8 +4,8 @@
     --inclinic-color: #48d6d2;
     --top-color: #81e9e6;
     --today-color: #fefcbf;
-    
 }
+
 
 * {
     margin: 0;
@@ -14,16 +14,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.logo-wrapper {
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    padding: 10px;
-    height: 170px;
-}
+
 
 .logo-wrapper img {
-    height: 95px;
+    /* height: 95px; */
 }
 
 .nav-items {
@@ -35,6 +29,8 @@
     font-size: inherit;
 }
 .nav-button {
+    text-align: center;
+    text-decoration: none;
     margin: 10px;
     border: none;
     background: none;
@@ -113,43 +109,6 @@ header {
     font-size: 36px;
     font-weight: normal;
 }
-
-.week-controls {
-    display: flex;
-    align-items: center;
-}
-#add-event {
-    width: 150px;
-}
-
-.main-view {
-    flex: 1;
-}
-.week-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.selector-label {
-    font-size: 12px;
-    font-style: oblique;
-}
-.week-window {
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.week-window div {
-    padding: 5px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
-}
-.week-window p {
-    text-align: center;
-}
-.week-window button {
-    width: 30px
-}
 .calendar {
     display: flex;
     width: 100%;
@@ -162,9 +121,9 @@ header {
     min-height: 85vh;
 }
 .event {
-    border: black solid 2px;
-    align-items: center;
-    padding: 10px;
+    border: black solid 1px;
+    /* align-items: center; */
+    padding: 4px;
     border-radius: 10px;
     margin: 5px;
     cursor: pointer;
@@ -172,6 +131,7 @@ header {
 .event-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .day-header {
     color: white;
@@ -192,6 +152,7 @@ header {
 }
 .event p {
     font-size: 14px;
+    margin: 0;
 }
 
 #event-input, .login-form {
@@ -303,6 +264,125 @@ header {
   padding: 5px;
 }
 
+.accordion-item button {
+    font-size: 24px;
+    color: #0275d8;
+}
+.accordion-icon {
+    font-size: 8.0em;
+    color: #0275d8;
+    margin: 20px;
+}
+
+.accordion-body ul {
+    list-style: none;
+}
+
+.main_text {
+    font-size:1.5em;
+    line-height: 1.5;
+}
+
+.list_text {
+    font-size: 1.2em;
+    line-height: 2.0;
+    list-style: none;
+    font-style: italic;
+    margin: 50px;
+    margin-top: 10px;
+}
+.guardguys-logo {
+    height: 95px;
+}
+.logo-wrapper {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: whitesmoke;
+    padding: 10px;
+}
+/* Beginning of social-wrapper part of header */
+
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* justify-content: space-between; */
+    /* padding: 10px; */
+}
+
+.social-wrapper ul {
+    display: flex;
+    list-style: none;
+    /* align-items: flex-end; */
+    /* justify-content: space-around; */
+}
+
+.social-wrapper ul a {
+    
+}
+
+.contact-icon {
+  width: 36px;
+  padding: 2px;
+}
+
+.header-phone {
+    /* text-decoration: none; */
+    /* font-size: 24px; */
+    /* font-family: 'Kanit'; */
+    /* font-weight: 550; */
+    /* color: white; */
+    /* text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; */
+    /* font-style: oblique; */
+}
+
+.breadcrumb a {
+    color: white;
+}
+
+.breadcrumb >.active {
+    color: silver;
+}
+
+.week-controls {
+    display: flex;
+    align-items: center;
+}
+#add-event {
+    width: 150px;
+}
+
+.main-view {
+    flex: 1;
+}
+.week-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selector-label {
+    font-size: 12px;
+    font-style: oblique;
+}
+.week-window {
+    display: flex;
+}
+
+.week-window div {
+    padding: 2px;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+.week-window p {
+    text-align: center;
+    width: 100px;
+    height: 10px;
+}
+.week-window button {
+    width: 30px
+}
+
 @media screen and (max-width: 896px) {
     .calendar {
         flex-direction: column;
@@ -327,3 +407,4 @@ header {
         align-items: center;
     }
 }
+

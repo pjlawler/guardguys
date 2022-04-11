@@ -1,0 +1,70 @@
+<div class="container">
+<nav class="navbar navbar-light bg-primary sticky-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="tel:6512741756">(651)274-1756</a>
+  
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navigation Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">home</a>
+          </li>
+          {{#if session.loggedIn}}
+          <li class="nav-item"><button id="logout-button" class="btn nav-link active">logout</button></button>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-dark" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Employee Options
+            </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li class="dropdown-item"><a href="/schedule" class="nav-link active">schedule</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+          </li>
+
+          {{else}}
+          <li class="nav-item"><a class="nav-link active" href="/login">login</a></li>
+          {{/if}}
+
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="logo-wrapper">
+    <a href="/"><img class="guardguys-logo" src="/assets/images/GuardGuys OnSITE Logo.png" alt=""></a>
+      <div class="social-wrapper">
+        <ul>
+          <li><a href="tel:651-274-1756"><img class="contact-icon" src="./assets/images/phone.png" alt="Call us!"></a></li>
+          <li><a href="mailto:support@guardguys.com"><img class="contact-icon" src="/assets/images/email.png" alt="Email us!"></a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/qyDyQCDoYto4To626"><img class="contact-icon" src="/assets/images/location.png" alt="Find us!"></a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/911DrugTest"><img class="contact-icon" src="/assets/images/facebook.png" alt="Facebook"></a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/onsite-drug-testing-&-consulting-llc/"><img class="contact-icon" src="/assets/images/linkedin.png" alt="LinkedIn"></a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/911DrugTest"><img class="contact-icon" src="./assets/images/twitter.png" alt="Twitter"></a></li>
+        </ul>
+        {{#if session.loggedIn}}
+          <p class="text-right text-primary">Logged in as {{session.username}}</p>
+        {{else}}
+          <p class="text-right text-primary"><a href="/login">Login</a></p>
+        {{/if}}
+    </div>
+</div>
+</div>
+{{#if session.loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}

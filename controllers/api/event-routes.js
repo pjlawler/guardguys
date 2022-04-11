@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { Event, User } = require('../../models');
+const { getWeekParams } = require('../../utils/helpers');
+const { Op } = require('sequelize');
 
-//Create
+// create
 router.post('/', (req, res) => {
     Event.create({
         date: req.body.date,
@@ -19,8 +21,7 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-//Read All
+// read all
 router.get('/', (req, res) => {
     Event.findAll({
         include: {
@@ -34,6 +35,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err)
     });
 });
+// read one
 router.get('/:id', (req, res) => {
     Event.findOne({
         where: { id: req.params.id },
@@ -54,8 +56,24 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-// Update
+// read all for week
+router.get('/weekof/:week', (req, res)=> {
+    const date_range = getWeekParams(req.params.week);
+    Event.findAll({
+        where: { date: {[Op.between]: [date_range.from, date_range.to]}},
+        include: {
+            model: User,
+            attributes: ['username']
+        },
+        order: ['date']
+    })
+    .then(dbEventData => res.json(dbEventData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    }); 
+})
+// update
 router.put('/:id', (req, res) => {
     Event.update(req.body, {
         where: { id: req.params.id }
@@ -72,8 +90,7 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-// Delete
+// delete
 router.delete('/:id', (req, res) => {
     Event.destroy({
         where: { id: req.params.id }

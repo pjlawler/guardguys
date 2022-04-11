@@ -1,15 +1,9 @@
- <header>
-            <div class="logo-wrapper">
-                <a href="/public/admin.html"><img src="./assets/GuardGuys OnSITE Logo.png" alt=""></a>
-            </div>
-               <h2></h2>
-            <div class="nav-bar">
-                <h1>Appointment Schedule</h1>
-                <div class="week-selector">
-                </div>
-            </div>
-            </header>
+{{>navbar}}
+<div class="container" style="height: 70vh;">
+{{>home-button}}
 
+
+</div>
 <form class="login-form">
   <h2 id="form-label">User Login</h2>
   <div>
@@ -25,3 +19,5 @@
   </div>
   <script src="/javascript/login.js"></script>
 </form>
+
+{{>footer}}

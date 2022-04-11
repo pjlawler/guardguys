@@ -4,8 +4,8 @@
     --inclinic-color: #48d6d2;
     --top-color: #81e9e6;
     --today-color: #fefcbf;
-    
 }
+
 
 * {
     margin: 0;
@@ -14,18 +14,53 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+
+.logo-wrapper img {
+    /* height: 95px; */
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.nav-items p {
+    font-size: inherit;
+}
+.nav-button {
+    text-align: center;
+    text-decoration: none;
+    margin: 10px;
+    border: none;
+    background: none;
+    color: var(--header-color);
+    border: var(--header-color) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    width: 125px;
+}
+
+.nav-button:hover {
+    background: var(--header-color);
+    color: white;
+    font-weight: bold;
+}
+
+
 header {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-between;
     padding: 20px;
     background: white;
-    border: solid 1px black;
 }
 
-header h1 {
-    font-size: 36px;
-    font-weight: normal;
+
+
+.line {
+    margin: 0 auto;
+    border-bottom: 2px solid var(--header-color);
 }
 
 .current-datetime {
@@ -34,8 +69,14 @@ header h1 {
     align-items: center;
     border: 2px solid black;
     padding: 15px;
+    width: 250px;
     border-radius: 15px;
     background: var(--today-color);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-left: -125px;
+
 }
 
 .current-datetime .title {
@@ -54,52 +95,19 @@ header h1 {
     color: var(--header-color);
 }
 
-.logo-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 0;
-}
-
-.logo-wrapper img {
-    height: 100px;
-    margin: 20px;
-}
 .nav-bar {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.main-view {
-    flex: 1;
-}
-.week-selector {
-    display: flex;
-    flex-direction: column;
     align-items: center;
 }
-.selector-label {
-    font-size: 12px;
-    font-style: oblique;
-}
-.week-window {
+
+.page-title {
     display: flex;
-    margin-bottom: 10px;
+    align-items: center;
 }
-#current-week, #add-event {
-    padding: 5px;
-    border-radius: 5px;
-}
-.week-window div {
-    padding: 5px;
-    width: 120px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
-}
-.week-window p {
-    text-align: center;
-}
-.week-window button {
-    width: 30px
+
+.page-title h1 {
+    font-size: 36px;
+    font-weight: normal;
 }
 .calendar {
     display: flex;
@@ -113,15 +121,17 @@ header h1 {
     min-height: 85vh;
 }
 .event {
-    border: black solid 2px;
-    align-items: center;
-    padding: 10px;
+    border: black solid 1px;
+    /* align-items: center; */
+    padding: 4px;
     border-radius: 10px;
     margin: 5px;
+    cursor: pointer;
 }
 .event-header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 .day-header {
     color: white;
@@ -142,6 +152,7 @@ header h1 {
 }
 .event p {
     font-size: 14px;
+    margin: 0;
 }
 
 #event-input, .login-form {
@@ -227,6 +238,13 @@ header h1 {
     background: var(--today-color);
 }
 
+.center-page {
+    position: fixed; /* Stay in place */
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
 
 /* Login page */
 
@@ -243,9 +261,150 @@ header h1 {
 }
 .login-form input {
   width: 100%;
-  height: 40px;
+  padding: 5px;
 }
 
-#logout {
-    padding: 2px;
+.accordion-item button {
+    font-size: 24px;
+    color: #0275d8;
 }
+.accordion-icon {
+    font-size: 8.0em;
+    color: #0275d8;
+    margin: 20px;
+}
+
+.accordion-body ul {
+    list-style: none;
+}
+
+.main_text {
+    font-size:1.5em;
+    line-height: 1.5;
+}
+
+.list_text {
+    font-size: 1.2em;
+    line-height: 2.0;
+    list-style: none;
+    font-style: italic;
+    margin: 50px;
+    margin-top: 10px;
+}
+.guardguys-logo {
+    height: 95px;
+}
+.logo-wrapper {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: whitesmoke;
+    padding: 10px;
+}
+/* Beginning of social-wrapper part of header */
+
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* justify-content: space-between; */
+    /* padding: 10px; */
+}
+
+.social-wrapper ul {
+    display: flex;
+    list-style: none;
+    /* align-items: flex-end; */
+    /* justify-content: space-around; */
+}
+
+.social-wrapper ul a {
+    
+}
+
+.contact-icon {
+  width: 36px;
+  padding: 2px;
+}
+
+.header-phone {
+    /* text-decoration: none; */
+    /* font-size: 24px; */
+    /* font-family: 'Kanit'; */
+    /* font-weight: 550; */
+    /* color: white; */
+    /* text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000; */
+    /* font-style: oblique; */
+}
+
+.breadcrumb a {
+    color: white;
+}
+
+.breadcrumb >.active {
+    color: silver;
+}
+
+.week-controls {
+    display: flex;
+    align-items: center;
+}
+#add-event {
+    width: 150px;
+}
+
+.main-view {
+    flex: 1;
+}
+.week-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selector-label {
+    font-size: 12px;
+    font-style: oblique;
+}
+.week-window {
+    display: flex;
+}
+
+.week-window div {
+    padding: 2px;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+.week-window p {
+    text-align: center;
+    width: 100px;
+    height: 10px;
+}
+.week-window button {
+    width: 30px
+}
+
+@media screen and (max-width: 896px) {
+    .calendar {
+        flex-direction: column;
+    }
+
+    .logo-wrapper {
+        flex-direction: column;
+    }
+    .current-datetime  {
+        display: none;
+    }
+
+    .day-column {
+        min-height: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-bar {
+        align-items: center;
+    }
+}
+

@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
-            req.session.isAdmin = true;
+            req.session.isAdmin = dbUserData.isAdmin;
             
             res.json(dbUserData);
         })
@@ -44,7 +44,7 @@ router.post('/login', (req, res) => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
-            req.session.isAdmin = true;
+            req.session.isAdmin = dbUserData.isAdmin;
 
             res.json({user: dbUserData, message: 'You are now logged in!'});
         });
@@ -60,7 +60,6 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
-
 router.put('/:id', (req, res) => {
     User.update(req.body, {
         individualHooks: true,
@@ -128,5 +127,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
 
 module.exports = router;

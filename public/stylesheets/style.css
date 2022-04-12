@@ -111,13 +111,13 @@ header {
 }
 .calendar {
     display: flex;
-    width: 100%;
+    overflow-y: scroll;
 }
 .day-column {
     display: flex;
     flex-direction: column;
     border: solid 1px black;
-    flex: 1 1;
+    flex:0 1 20%;
     min-height: 85vh;
 }
 .event {
@@ -381,6 +381,12 @@ header {
 }
 .week-window button {
     width: 30px
+}
+
+.calendar-column {
+    border: black 1px solid;
+    min-height: 70vh;
+    flex: 0 0 250px;
 }
 
 @media screen and (max-width: 896px) {

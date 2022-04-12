@@ -2,7 +2,7 @@
 <nav class="navbar navbar-light bg-primary sticky-top">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="tel:6512741756">(651)274-1756</a>
+    <a class="navbar-brand text-white" href="tel:6512741756">(651)274-1756</a>
   
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -13,35 +13,38 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">home</a>
-          </li>
+        <ul class="nav flex-column justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item"><a class="nav-link" href="/">Main</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dot-services">DOT Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+
           {{#if session.loggedIn}}
-          <li class="nav-item"><button id="logout-button" class="btn nav-link active">logout</button></button>
+          <li class="nav-item"><button id="logout-button" class="btn nav-link">Logout</button></button>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Employee Options
+              Employee Intranet
             </a>
               <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                <li class="dropdown-item"><a href="/schedule" class="nav-link active">schedule</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li class="dropdown-item"><a href="/schedule" class="nav-link">Appointment Schedule</a></li>
+                <li class="dropdown-item"><a href="/dashboard" class="nav-link">My Dashboard</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                {{#if session.isAdmin}}
+                <li class="dropdown-item"><a href="/admin" class="nav-link">Admin</a></li>
+                {{/if}}
               </ul>
           </li>
-
           {{else}}
-          <li class="nav-item"><a class="nav-link active" href="/login">login</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
           {{/if}}
 
         </ul>
-        <form class="d-flex">
+        {{!-- <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> --}}
       </div>
     </div>
   </div>
@@ -58,10 +61,12 @@
           <li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/911DrugTest"><img class="contact-icon" src="./assets/images/twitter.png" alt="Twitter"></a></li>
         </ul>
         {{#if session.loggedIn}}
-          <p class="text-right text-primary">Logged in as {{session.username}}</p>
+          <div class="container d-flex justify-content-end">
+            <p class="text-right text-primary">Logged in as {{session.username}}</p>
         {{else}}
-          <p class="text-right text-primary"><a href="/login">Login</a></p>
+            {{!-- <p class="text-right text-primary"><a href="/login">Login</a></p> --}}
         {{/if}}
+          </div>  
     </div>
 </div>
 </div>

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Task } = require('../models');
-const { withAuth, withAdmin } = require('../utils/withAuth');
+const { withAuth, withAdmin} = require('../utils/withAuth');
 
 router.get('/about-us', (req, res) => {res.render('about-us', req)});
 router.get('/dot-services', (req, res) => { res.render('dot-services', req)});

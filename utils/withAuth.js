@@ -9,7 +9,7 @@ const withAuth = (req, res, next) => {
 
   const withAdmin = (req, res, next) => {
     if(!req.session.loggedIn || !req.session.isAdmin) {
-      res.redirect('/', req);
+      res.redirect('/');
     } else {
       next();
     }

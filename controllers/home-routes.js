@@ -9,6 +9,6 @@ router.get('/schedule', withAuth, (req, res) => { res.render('appointments', req
 router.get('/dashboard', withAuth, (req, res) => { res.render('dashboard', req) });
 router.get('/admin', withAdmin, (req, res) => { res.render('admin', req) });
 router.get('/login', (req, res) => { res.render('login', req) });
-router.get('/', (req, res) => { res.render('homepage', req) });
+router.get('/', (req, res) => { res.render('homepage2', req) });
 
 module.exports = router;

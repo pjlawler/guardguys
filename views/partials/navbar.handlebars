@@ -1,17 +1,29 @@
-<div class="container">
-<nav class="header">
-   <a href="/"><img class="guardguys-logo" src="/assets/images/logo_bordered.png" alt=""></a>
-  <div class="">
-    <div class="">
-      <a href="#"><button class="nav-button">Program Management</button></a>
-      <a href="#"><button class="nav-button">DOT</button></a>
-      <a href="#"><button class="nav-button">About</button></a>
-      {{#if session.loggedIn}}
-      <a href="#"><button class="nav-button" id="logout-button">Schedule</button></a>
-      <a href="#">logout</a>
-      {{else}}
-      <a href="/login">login</a>
-      {{/if}}
-    </div>
+  <div class="container">
+    <nav class="header">
+      <a href="/"><img class="guardguys-logo" src="/assets/images/logo_bordered.png" alt=""></a>
+      <div class="">
+        
+        <div class="">
+          <a href="/"><button class="nav-button">Home</button></a>
+          <a href="/program-management"><button class="nav-button">Program Management</button></a>
+          <a href="/dot-services"><button class="nav-button">DOT</button></a>
+          <a href="/about-us"><button class="nav-button">About Us</button></a>
+          {{#if session.loggedIn}}
+          <a href="/schedule"><button class="nav-button">Schedule</button></a>
+            
+          {{#if session.isAdmin}}   
+          <a href="/admin"><button class="nav-button">Dashboard</button></a>
+          {{/if}}
+          <button class="nav-button" id="logout-button">Logout</button>
+          {{else}}
+          <a href="/login"><button class="nav-button">Login</button></a>
+          {{/if}}
+        </div>
+      
+      </div>
+    </nav>
   </div>
-</nav>
+
+{{#if session.loggedIn}}
+  <script src="/javascript/logout.js"></script>
+{{/if}}

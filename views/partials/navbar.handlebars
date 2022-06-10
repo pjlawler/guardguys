@@ -6,6 +6,13 @@
       <a href="#"><button class="nav-button">Program Management</button></a>
       <a href="#"><button class="nav-button">DOT</button></a>
       <a href="#"><button class="nav-button">About</button></a>
+      <p>{{req.session.loggedIn}}</p>
+      {{#if req.session.loggedIn}}
+      <a href="#"><button class="nav-button">Schedule</button></a>
+      <a href="/logout">logout</a>
+      {{else}}
+       <a href="/login">login</a>
+      {{/if}}
     </div>
   </div>
 </nav>

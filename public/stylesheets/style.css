@@ -31,10 +31,12 @@ body {
 .left-side {
     border: black 1px solid;
     padding: 2px;
+    flex: 8;
 }
 
 .right-side {
     padding: 2px;
+    flex: 4;
 }
 .right-side a {
     text-align: center;
@@ -55,6 +57,7 @@ body {
 .hours-table td {
     width: 150px;
 }
+
 
 .nav-items {
     display: flex;
@@ -157,7 +160,7 @@ body {
 }
 
 .partner-wrapper img {
-    width: 25%;
+   max-width: 250px;
 }
 
 .line {
@@ -451,6 +454,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 #add-event {
     width: 150px;
 }
@@ -514,6 +518,13 @@ body {
     }
     .nav-bar {
         align-items: center;
+    }
+
+    .main-section {
+        flex-direction: column;
+    }
+    .left-side, .right-side {
+        flex: 1;
     }
 }
 

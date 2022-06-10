@@ -146,6 +146,10 @@ body {
     background:  #2a6fdb;
 }
 
+.header a {
+    color: white;
+}
+
 .partner-wrapper {
     display: flex;
     flex-wrap: wrap;

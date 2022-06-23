@@ -118,8 +118,9 @@ body {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-start;
-    width: 100%
+    width: 100%;
 }
+
 .nav_vertical span {
     font-size: 40px;
     margin: 10px;
@@ -136,7 +137,7 @@ body {
     margin-right: 2px;
     padding: 10px;
     height: 90vh;
-    width: 100%;
+    width: 90%;
     background: var(--ver-btn-bg);
 }
 .nav_vertical .navButton {
@@ -149,6 +150,8 @@ body {
 
 }
 
+
+
 .nav_vertical .navButton:hover {
     background: var(--hor-btn-color);
     color: var(--hor-btn-bg);
@@ -158,7 +161,6 @@ body {
 h2 {
     text-align: center;
     color: var(--primary-color)
-
 }
 
 .mission-statement {
@@ -209,12 +211,18 @@ h2 {
         width: 95%;
         justify-content: space-between;
         align-items: flex-start;
+        max-height: 60px;
+    }
+
+    #navigation img {
+        width: 150px;
     }
 
     .nav_items {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        width: 100%;
     }
 
     .nav_horizontal {
@@ -223,12 +231,14 @@ h2 {
     .nav_vertical {
         display: flex;
     }
-    
+
     .split {
         flex-direction: column;
     }
     .left-side, .right-side {
         flex: 1;
+        margin-left: 2px;
+        margin-right: 2px;
     }
 }
 
@@ -239,10 +249,6 @@ h2 {
     .service-col {
         width: 100%;
         flex: 1;
-    }
-
-    #navigation img {
-        width: 150px;
     }
 
     .bio-wrapper {

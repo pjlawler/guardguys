@@ -1,0 +1,16 @@
+{{>navbar}}
+
+<div class="main-section">
+    {{#each item}}
+        <div style="max-width:1400px; margin: 0 auto">
+             <div class="panel">
+                <div class="panel-title"><h5>{{name}}</h5></div>
+                 <div class="panel-body">
+                    {{description}}
+                </div>
+            </div>    
+        </div>
+    {{/each}}
+</div>
+
+{{>footer}}

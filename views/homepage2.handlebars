@@ -1,48 +1,57 @@
 {{>navbar}}
-<div class=" container main-section">
+<div class="main-section split">
       {{!-- left side of page --}}
       <div class="left-side">
 
+        {{!-- About Statement --}}
+        <h2>Guardguys is a Veteran Owned and Operated business located in Little Canada, Minnesota. Specializing in drug and alcohol testing.</h2>
+        <hr class="my-4" />
         {{!-- Oncall banner --}}
         <div class="oncall-banner">
-          <img src="/assets/images/oncall-banner.png" class="img-fluid rounded-start" alt="...">
+          <img src="/assets/images/oncall-banner.png" width="100%" alt="...">
           <button class="q-button">Questions?</button>
         </div>
-        <hr class="my-4" />
+      
 
-        {{!-- About Statement --}}
-        <h2 class="text-center m-3">Veteran owned and operated to help complete your mission OnSITE or in our clinic.</h2>
-        
         {{!-- Our Services --}}
-        <div class="card">
-          <h5 class="card-title text-primary">Our Services</h5>
-           <div class="card-body">
+        <br>
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Our Services</h5>
+             {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+            </div>  
+           <div class="panel-body">
               <ul>
                 <div class="service-container">
-                  <div class="col-6">
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">DOT Certified Testing Center</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Urine, Saliva, Hair and DNA Testing</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">TB Gold</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Fingerprinting</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Consortium/Third Party Administrator (C/TPA)</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Mobile 24/7</p></li>
+                  <div class="service-col">
+                    <li><a href="/more-info?item=testing_center"><img src="/assets/images/bullseye.svg"/><p class="card-text">DOT Certified Testing Center</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Urine, Saliva, Hair and DNA Testing</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">TB Gold</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Fingerprinting</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Consortium/Third Party Administrator (C/TPA)</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Mobile 24/7</p></a></li>
                   </div> 
-                  <div class="col-6">
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Background Screening</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Drug Testing Policy Consulting</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">Employer/Employee Training per Federal and MN Statutes</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">COVID-19 Testing</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">MVR</p></li>
-                    <li><img src="/assets/images/bullseye.svg"/><p class="card-text">BAT</p></li>
+                  <div class="service-col">
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Background Screening</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Drug Testing Policy Consulting</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Employer/Employee Training per Federal and MN Statutes</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">COVID-19 Testing</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">MVR</p></a></li>
+                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">BAT</p></a></li>
                   </div> 
                 </div>
               </ul>              
           </div>
         </div>
+
         {{!-- partner logos --}}
-        <div class="card">
-          <h5 class="card-title text-primary">Our Partners</h5>
-          <div class="card-body">
+        <br>
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Our Partners</h5>
+            <span class="material-symbols-outlined panel-toggle">expand_more</span>
+          </div>
+          <div class="panel-body collapsed">
             <div class="partner-wrapper">
               <img src="/assets/images/labs.png" class="img-fluid rounded-start" alt="...">
               <img src="/assets/images/partners.png" class="img-fluid rounded-start" alt="...">
@@ -51,22 +60,32 @@
           </div>
         </div>
       </div>
+      <br>
 
       {{!-- right side of page --}}
       <div class="right-side p-0">
-        <div class="card">
-          <h5 class="card-title text-primary">Walk-in Clinic Location</h5>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2820.219868603072!2d-93.10563708419087!3d45.02046197096257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b2d5f636a00675%3A0x65fcf64e5d9c2a89!2sGuard%20Guys%20LLC%20ONSITE%20DRUG%20TESTING%20AND%20CONSULTING!5e0!3m2!1sen!2sus!4v1653412330654!5m2!1sen!2sus" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="card-body">
+
+        {{!-- Clinic Map --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Walk-in Clinic Location</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+          <div class="panel-body">
               <p class="address-line">70 County Road C West, Ste 702</p>
               <p class="address-line">Little Canada, MN 55117</p>
-              {{!-- <hr class="my-4"/> --}}
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2820.219868603072!2d-93.10563708419087!3d45.02046197096257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b2d5f636a00675%3A0x65fcf64e5d9c2a89!2sGuard%20Guys%20LLC%20ONSITE%20DRUG%20TESTING%20AND%20CONSULTING!5e0!3m2!1sen!2sus!4v1653412330654!5m2!1sen!2sus" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <br>
-        <div class="card">
-          <h5 class="card-title text-primary">Clinic Hours</h5>
-           <div class="card-body">
+
+        {{!-- Clinic Hours --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Clinic Hours</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+           <div class="panel-body">
               <table class="hours-table">
                 <tr><td>Monday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
                 <tr><td>Tuesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
@@ -76,12 +95,18 @@
                 <tr><td>Saturday</td><td class="time-cell">By appointment</td></tr>
                 <tr><td>Sunday</td><td class="time-cell">By appointment</td></tr>
               </table>
+              <p class="center-link"><a href="https://uenroll.identogo.com/manage-appointment" target="_blank">Schedule Service</a></p>              
           </div>
         </div>
         <br>
-        <div class="card">
-          <h5 class="card-title text-primary">Fingerprint Services</h5>
-           <div class="card-body">
+
+        {{!-- Fingerprinting Hours --}}
+        <div id="fp-hours-panel" class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Fingerprinting Hours</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+           <div class="panel-body">
               <table class="hours-table">
                 <tr><td>Monday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
                 <tr><td>Tuesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
@@ -91,13 +116,18 @@
                 <tr><td>Saturday</td><td class="time-cell">By appointment</td></tr>
                 <tr><td>Sunday</td><td class="time-cell">Closed</td></tr>
               </table>   
-          </div>
-          <a href="https://uenroll.identogo.com/manage-appointment" target="_blank">Schedule Fingerprinting</a>
+              <p class="center-link"><a href="https://uenroll.identogo.com/manage-appointment" target="_blank">Schedule Fingerprinting</a></p>
+            </div>
         </div>
-         <br>
-        <div class="card">
-          <h5 class="card-title text-primary">Contact Us</h5>
-           <div class="card-body">
+        <br>
+
+         {{!-- Contact Us --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Contact Us</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+           <div class="panel-body">
               <table class="hours-table">
                 <tr><td>Clinic/On-call</td><td><a href="tel:+16512741756">(651)274-1756 (24hrs)</a></td></tr>
                 <tr><td>Fax</td><td>(651)846-5600</td></tr>
@@ -106,45 +136,12 @@
           </div>
         </div>
       </div>
-     
-     {{!- --}}
+
 </div>
 
 
 
-{{!-- 
-<div class="container"  style="height: 70vh;">
-<div class="card mb-3" style="max-width: 100%;">
-  <div class="row g-0">
-    <div class="col-md-7">
-      <img src="/assets/images/onsite_mobile.png" class="img-fluid rounded-start" alt="...">
-      
-    </div>
-    <div class="col-md-2 p-1">
-      <img src="/assets/images/csr_woman.png" class="img-fluid rounded-start">
-      <button class="btn btn-primary m-4">Questions?</button>
-    </div>
-    
-    </div>
-  </div>
-   <div class="jumbotron">
-    
-  </div>
-</div> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/javascript/panels.js"></script>
 </div>
 
 {{>footer}}

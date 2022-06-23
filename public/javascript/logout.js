@@ -12,3 +12,4 @@ async function logout() {
 
 // logout button clicked
 document.querySelector('#logout-button').addEventListener('click', logout);
+document.querySelector('#vert-logout-button').addEventListener('click', logout);

@@ -1,28 +1,50 @@
-  <div class="container">
-    <nav class="header">
-      <a href="/"><img class="guardguys-logo" src="/assets/images/logo_bordered.png" alt=""></a>
-      <div class="">
-        
-        <div class="">
-          <a href="/"><button class="nav-button">Home</button></a>
-          <a href="/program-management"><button class="nav-button">Program Management</button></a>
-          <a href="/dot-services"><button class="nav-button">DOT</button></a>
-          <a href="/about-us"><button class="nav-button">About Us</button></a>
+<div id="navigation">
+  <div class="nav-wrapper">
+    <a href="/"><img
+        src="/assets/images/guardguys-logo-white.svg"
+        alt=""
+        srcset=""
+      /></a>
+    <div class="nav_items">
+      <div class="nav_horizontal">
+        <ul>
+          <li><a href="/" class="navButton">Home</a></li>
+          <li><a href="/program-management" class="navButton">Program Management</a></li>
+          <li><a href="/dot-services" class="navButton">DOT</a></li>
+          <li><a href="/about-us" class="navButton">About Us</a></li>
           {{#if session.loggedIn}}
-          <a href="/schedule"><button class="nav-button">Schedule</button></a>
-            
-          {{#if session.isAdmin}}   
-          <a href="/admin"><button class="nav-button">Dashboard</button></a>
-          {{/if}}
-          <button class="nav-button" id="logout-button">Logout</button>
+            <li><a href="/schedule" class="navButton">Schedule</a></li>
+            {{#if session.isAdmin}}
+              <li><a href="/admin" class="navButton">Dashboard</a></li>
+            {{/if}}
+            <li><a id="logout-button" class="navButton">Log out</a></li>
           {{else}}
-          <a href="/login"><button class="nav-button">Login</button></a>
+            <li><a href="/login" class="navButton">Login</a></li>
           {{/if}}
-        </div>
-      
+        </ul>
       </div>
-    </nav>
+      <div class="nav_vertical">
+        <span class="material-symbols-outlined">menu</span>
+        <ul id="vert_menu" class="isHidden">
+          <li><a href="/" class="navButton">Home</a></li>
+          <li><a href="/program-management" class="navButton">Program Management</a></li>
+          <li><a href="/dot-services" class="navButton">DOT</a></li>
+          <li><a href="/about-us" class="navButton">About Us</a></li>
+          {{#if session.loggedIn}}
+            <li><a href="/schedule" class="navButton">Schedule</a></li>
+            {{#if session.isAdmin}}
+              <li><a href="/admin" class="navButton">Dashboard</a></li>
+            {{/if}}
+            <li><a id="vert-logout-button" class="navButton">Log out</a></li>
+          {{else}}
+            <li><a href="/login" class="navButton">Login</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+
   </div>
+</div>
 
 {{#if session.loggedIn}}
   <script src="/javascript/logout.js"></script>

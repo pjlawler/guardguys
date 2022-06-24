@@ -414,7 +414,7 @@ body {
 }
 /* Beginning of social-wrapper part of footer */
 footer {
-    background: #2a6fdb;
+    background: var(--header-color);
     width: 100%;
     display: flex;
     flex-direction: column;

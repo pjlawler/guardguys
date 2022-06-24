@@ -1,6 +1,6 @@
 :root {
     --panel-title-bg: whitesmoke;
-    --panel-title-color: #002060;
+    --panel-title-color: #007bff;
     --panel-body-bg: white;
     --panel-body-color: black;
     --panel-border: black;
@@ -16,7 +16,7 @@
     --ver-btn-color: black;
     --ver-btn-bg: white;
     --ver-btn-border: white;
-    --primary-color: #002060;
+    --primary-color: #007bff;
 
 }
 body {
@@ -150,13 +150,22 @@ body {
 
 }
 
-
-
 .nav_vertical .navButton:hover {
     background: var(--hor-btn-color);
     color: var(--hor-btn-bg);
 }
 
+.contact24_7 {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contact24_7 img {
+    width: 75%;
+    max-width: 400px;
+}
 /* About Section */
 h2 {
     text-align: center;
@@ -211,11 +220,11 @@ h2 {
         width: 95%;
         justify-content: space-between;
         align-items: flex-start;
-        max-height: 60px;
+        max-height: 97px;
     }
 
     #navigation img {
-        width: 150px;
+        width: 250px;
     }
 
     .nav_items {

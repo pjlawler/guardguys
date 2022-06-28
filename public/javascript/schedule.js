@@ -409,7 +409,7 @@ function display_modal() {
 // Start of event listens
 
 // change of the weekof date
-document.querySelector('.week-controls').addEventListener('click', event => {
+document.querySelector('#week-controls').addEventListener('click', event => {
 
     let currentWeek = new Date(currentWeekEl.innerText);
 
@@ -421,21 +421,23 @@ document.querySelector('.week-controls').addEventListener('click', event => {
     currentWeekEl.innerText = convertDateTo('medium_date', currentWeek);
     load_events().then(generateCalendar);
 });
+
 // edit an event (event clicked)
 document.querySelector('.week-view').addEventListener('click', e => {
     e.preventDefault();
     editing_event = clickedId(e.target);
     if(editing_event) { display_modal() };
 });
+
 // new event button clicked
 document.querySelector('#add-event').addEventListener('click', (e)=> {
     e.preventDefault();
     display_modal();
 });
+
 // modal submit button clicked (add or update)
 document.querySelector('#submit').addEventListener('click', (e) => {
     e.preventDefault();
-
     const titleEl = document.querySelector('#event-title');
     const start_date = document.querySelector('#start-date');
     const start_time = document.querySelector('#start-time');
@@ -484,6 +486,7 @@ document.querySelector('#submit').addEventListener('click', (e) => {
         notes: event_notes.value,
         user_id: user_selector.value ? user_selector.value : null
     }
+
     const event_date = new Date(event_start)
     currentWeekEl.innerText = convertDateTo('medium_date',get_weekOf_for(event_date));
 

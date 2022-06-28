@@ -1,27 +1,28 @@
 {{>navbar}}
-<div class="container">
-    <div class="constainer d-flex justify-content-between align-items-center mt-1">
-        <div class="container d-flex justify-content-end align-items-center">
-            <button id="add-event" class="btn btn-primary me-1">New Event</button>
-            <div class="selector-label ms-3 me-1">displaying week of</div>
-            <div class="week-controls">
-                <div class="week-selector me-1">
-                    <div class="week-window">
+<div class="main-section">
+    <div id="control-row">
+        <button id="add-event" class="btn-primary">New Event</button>
+        <div id="schedule-controls">
+            <div id="week-controls">
+                <div id="selector-wrapper">
+                    <div id="week-label">displaying week of</div>
+                    <div id="week-selector">
                         <button id="left-arrow">&LeftArrow;</button>
                         <div><p id="weekOf"></p></div>
                         <button id="right-arrow">&RightArrow;</button>
                     </div>
                 </div>
-                <button id="current-week" class="btn btn-primary">This week</button>
+                <button id="current-week" class="btn-primary">This week</button>
             </div>
+           
         </div>
     </div>        
     <hr class="my-1">
-    <h1 class="text-center">Appointment Scheduler</h1>
-    <section class="week-view overflow-scroll"></section>
+    <h1 class="text-primary align-center">Appointment Scheduler</h1>
+    <section class="week-view"></section>
 </div>
 
-<form id="event-input">
+<form id="event-input" class="center-page">
     <h2 id="form-label">Edit Details</h2>
     <label for="event-title">Event</label>
     <input type="text" name="" id="event-title">
@@ -56,21 +57,6 @@
         <button id="delete">Delete</button>
     </div>
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script src="/javascript/schedule.js"></script>

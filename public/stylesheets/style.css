@@ -76,16 +76,6 @@ body {
     align-items: center;
 }
 
-.q-button {
-    text-align: center;
-    text-decoration: none;
-    margin: 10px;
-    background: var(--white);
-    color: var(--onsite-color);
-    border: var(--onsite-color) 1px solid;
-    border-radius: 10px;
-    padding: 4px;
-}
 
 .q-button:hover{
     background: var(--onsite-color);

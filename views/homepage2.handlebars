@@ -3,44 +3,26 @@
       {{!-- left side of page --}}
       <div class="left-side">
 
-        {{!-- About Statement --}}
-        <h2>Guardguys is a Veteran Owned and Operated business located in Little Canada, Minnesota. Specializing in drug and alcohol testing.</h2>
-        <hr class="my-4" />
         {{!-- Oncall banner --}}
-        <div class="oncall-banner">
-          <img src="/assets/images/oncall-banner.png" width="100%" alt="...">
-          <button class="q-button">Questions?</button>
-        </div>
-      
+        <img src="/assets/images/oncall-banner.png" class="oncall-banner" alt="...">
 
-        {{!-- Our Services --}}
+
+        {{!-- More Info --}}
         <br>
         <div class="panel">
           <div class="panel-title">
             <h5 class="text-primary">Our Services</h5>
-             {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
-            </div>  
-           <div class="panel-body">
-              <ul>
-                <div class="service-container">
-                  <div class="service-col">
-                    <li><a href="/more-info?item=testing_center"><img src="/assets/images/bullseye.svg"/><p class="card-text">DOT Certified Testing Center</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Urine, Saliva, Hair and DNA Testing</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">TB Gold</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Fingerprinting</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Consortium/Third Party Administrator (C/TPA)</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Mobile 24/7</p></a></li>
-                  </div> 
-                  <div class="service-col">
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Background Screening</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Drug Testing Policy Consulting</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">Employer/Employee Training per Federal and MN Statutes</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">COVID-19 Testing</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">MVR</p></a></li>
-                    <li><a href="#"><img src="/assets/images/bullseye.svg"/><p class="card-text">BAT</p></a></li>
-                  </div> 
-                </div>
-              </ul>              
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+          <div class="panel-body">
+            <div class="more_info-wrapper">
+              <img src="/assets/images/drug_testing-bmp.png" alt="" srcset="">
+              <img src="/assets/images/alcohol_testing-bmp.png" alt="" srcset="">
+              <img src="/assets/images/dot_testing-bmp.png" alt="" srcset="">
+              <img src="/assets/images/employer_solutions-bmp.png" alt="" srcset="">
+              <img src="/assets/images/dna_testing-bmp.png" alt="" srcset="">
+              <img src="/assets/images/other_testing-bmp.png" alt="" srcset="">
+            </div>
           </div>
         </div>
 
@@ -64,6 +46,30 @@
 
       {{!-- right side of page --}}
       <div class="right-side p-0">
+        <div class="header-wrapper align-center">
+          <img src="/assets/images/header-right.png" alt="">
+        </div>
+       
+        <br>
+                 {{!-- Contact Us --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Contact Us</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+           <div class="panel-body">
+              <div class="contact24_7">
+                <a href="tel:+16512741756"><img src="/assets/images/24_7-number.png" alt="..."></a>
+                <hr class="my-2" />
+              </div>
+              <table class="hours-table">
+                <tr><td>Clinic/Office</td><td><a href="tel:+16512741756">(651)274-1756</a></td></tr>
+                <tr><td>Fax</td><td>(651)846-5600</td></tr>
+                <tr><td>Email</td><td><a href="mailto:support@guardguys.com">support@guardguys.com</a></td></tr>
+              </table>   
+          </div>
+        </div>
+        <br>
 
         {{!-- Clinic Map --}}
         <div class="panel">
@@ -95,7 +101,8 @@
                 <tr><td>Saturday</td><td class="time-cell">By appointment</td></tr>
                 <tr><td>Sunday</td><td class="time-cell">By appointment</td></tr>
               </table>
-              <p class="center-link"><a href="https://uenroll.identogo.com/manage-appointment" target="_blank">Schedule Service</a></p>              
+              <br>
+              <h4 class="align-center text-primary">Walk-in customers testing averages less than 15-minutes!</p>              
           </div>
         </div>
         <br>
@@ -104,9 +111,9 @@
         <div id="fp-hours-panel" class="panel">
           <div class="panel-title">
             <h5 class="card-title text-primary">Fingerprinting Hours</h5>
-            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+            <span class="material-symbols-outlined panel-toggle">expand_more</span>
           </div>
-           <div class="panel-body">
+           <div class="panel-body collapsed">
               <table class="hours-table">
                 <tr><td>Monday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
                 <tr><td>Tuesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
@@ -120,23 +127,9 @@
             </div>
         </div>
         <br>
-
-         {{!-- Contact Us --}}
-        <div class="panel">
-          <div class="panel-title">
-            <h5 class="card-title text-primary">Contact Us</h5>
-            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
-          </div>
-           <div class="panel-body">
-              <div class="contact24_7">
-                <a href="tel:+16512741756"><img src="/assets/images/24_7-green.png" alt="..."></a>
-              </div>
-              <table class="hours-table">
-                <tr><td>Clinic/Office</td><td><a href="tel:+16512741756">(651)274-1756</a></td></tr>
-                <tr><td>Fax</td><td>(651)846-5600</td></tr>
-                <tr><td>Email</td><td><a href="mailto:support@guardguys.com">support@guardguys.com</a></td></tr>
-              </table>   
-          </div>
+         <div class="csr-wrapper">
+          <img src="/assets/images/callcenter_rep-bmp.png" alt="...">
+          <button class="q-button">Questions?</button>
         </div>
       </div>
 

@@ -334,13 +334,19 @@ h5 {
 /* Appointment Scheduler */
 #control-row {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items:center;
+}
+
+#current-week {
+    width: 85px;
+    height: 35px;
 }
 
 #add-event {
-    margin-left: 10px;
+    margin-left: 50px;
     width: 100px;
+    height: 35px;
 }
 
 #week-controls {

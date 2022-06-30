@@ -282,6 +282,20 @@ h5 {
 }
 
 
+.partner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.partner_logo {
+    flex: 1 1 20%;
+    margin: 10px;
+    max-width: 200px;
+  
+}
+
+
 
 
 /* right-column header image */
@@ -634,5 +648,9 @@ h5 {
     }
     .bio-wrapper img {
         width: 50%;
+    }
+
+    .partner_logo { 
+        max-width: 150px;
     }
 }

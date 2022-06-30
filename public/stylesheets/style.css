@@ -117,15 +117,6 @@ body {
     color: white;
 }
 
-.partner-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.partner-wrapper img {
-   max-width: 250px;
-}
 
 .line {
     margin: 0 auto;

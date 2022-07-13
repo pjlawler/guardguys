@@ -47,6 +47,11 @@ body {
 
 p {
     margin: 0;
+    font-size: 1.2em;
+}
+
+td {
+    font-size: 1.0em;
 }
 
 a {
@@ -54,27 +59,38 @@ a {
     margin: 0;
 }
 
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 10px;
+}
+
 h2 {
-    font-size: 1.8em;
+    font-size: 2.3em;
     font-weight: normal;
 }
 
 h3 {
-    font-size: 1.3;
+    font-size: 2.0;
     font-weight: normal;
     margin: 0;
 }
 
 h4 {
-    font-size: 1.1em;
+    font-size: 1.7em;
     font-weight: normal;
     margin: 0;
 }
 
 h5 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: normal;
     margin: 10px;
+}
+
+h6 {
+    font-size: 1.3em;
+    font-weight: normal;
 }
 
 .btn-primary {
@@ -134,21 +150,38 @@ h5 {
     padding: 4px;
     background-color: var(--panel-title-bg);
     padding-left: 10px;
-}
-
-.panel-title p {
-    font-size: 1.5em;
     font-weight: bold;
     color: var(--panel-title-color);
     margin: 0;
 }
+
 .panel-toggle {
     font-size: 2.2em;
     color: var(--panel-title-color)
 }
+
 .panel-body {
     padding: 5px;
     background: var(--panel-body-bg);
+    color: var(--panel-body-color)
+}
+
+.panel-body .group-header {
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-left: 25px;
+    margin-top: 25px;
+    padding: 0;
+    color: var(--onsite-color);
+}
+
+.panel-body p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    margin-right: 10px;
+    line-height: 1.8;
+    padding: 0;
     color: var(--panel-body-color)
 }
 
@@ -156,6 +189,7 @@ h5 {
     padding: 5px;
     color: var(--primary-color);
 }
+
 .collapsed {
     display: none;
 }
@@ -181,6 +215,8 @@ h5 {
 .nav-wrapper {
     max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    padding: 10px;
 }
 
 #navigation img {
@@ -199,6 +235,7 @@ h5 {
 .nav_horizontal ul {
     display: flex;
     list-style: none;
+    margin-bottom: 0;
 }
 
 .nav_horizontal .navButton {
@@ -294,7 +331,6 @@ h5 {
     max-width: 200px;
   
 }
-
 
 
 
@@ -587,6 +623,14 @@ h5 {
 }
 
 
+/* More info page */
+
+
+.more-info-text {
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-weight: 500;
+}
 
 
 

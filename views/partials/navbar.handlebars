@@ -9,9 +9,10 @@
       <div class="nav_horizontal">
         <ul>
           <li><a href="/" class="navButton">Home</a></li>
-          <li><a href="/program-management" class="navButton">Program Management</a></li>
-          <li><a href="/dot-services" class="navButton">DOT</a></li>
           <li><a href="/about-us" class="navButton">About Us</a></li>
+          <li><a href="/faqs" class="navButton">FAQs</a></li>
+          <li><a href="/contact_us" class="navButton">Contact Us</a></li>
+          
           {{#if session.loggedIn}}
             <li><a href="/schedule" class="navButton">Schedule</a></li>
             {{#if session.isAdmin}}
@@ -19,17 +20,19 @@
             {{/if}}
             <li><a id="logout-button" class="navButton">Log out</a></li>
           {{else}}
-            <li><a href="/login" class="navButton">Login</a></li>
+            <li><a href="/login" class="navButton">Employee Portal</a></li>
           {{/if}}
+         
         </ul>
       </div>
       <div class="nav_vertical">
         <span class="material-symbols-outlined">menu</span>
         <ul id="vert_menu" class="isHidden">
           <li><a href="/" class="navButton">Home</a></li>
-          <li><a href="/program-management" class="navButton">Program Management</a></li>
-          <li><a href="/dot-services" class="navButton">DOT</a></li>
           <li><a href="/about-us" class="navButton">About Us</a></li>
+          <li><a href="/faqs" class="navButton">FAQs</a></li>
+          <li><a href="/contact_us" class="navButton">Contact Us</a></li>
+
           {{#if session.loggedIn}}
             <li><a href="/schedule" class="navButton">Schedule</a></li>
             {{#if session.isAdmin}}
@@ -37,7 +40,7 @@
             {{/if}}
             <li><a id="vert-logout-button" class="navButton">Log out</a></li>
           {{else}}
-            <li><a href="/login" class="navButton">Login</a></li>
+            <li><a href="/login" class="navButton">Employee Portal</a></li>
           {{/if}}
         </ul>
       </div>

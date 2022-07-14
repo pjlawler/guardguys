@@ -26,9 +26,10 @@ body {
 .address-line {
     padding: 0;
     margin: 0;
-    line-height: 1.1;
     margin-left: 10px;
+    font-size: 1.2em;
 }
+
 .hours-table {
     margin: 0 auto;
 }

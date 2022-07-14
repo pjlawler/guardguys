@@ -451,22 +451,36 @@ h6 {
 
 .mission-statement {
     border: black 1px solid;
-    background: whitesmoke;
-    width: 80%;
+    background: var(--onsite-color);
     margin: 0 auto;
     padding: 10px;
 }
+
+.mission-statement p {
+    font-size: 2.0em;
+    line-height: 2.0;
+    text-align: center;
+    color: white;
+
+}
+
+.bio-card {
+    margin: 10px;
+}
+
 .bio-name {
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: bold;
     color: var(--panel-title-color);
+
 }
 .bio-education {
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--panel-title-color);
 }
 .bio-wrapper {
     display: inline-block;
+    margin-top: 10px;
 }
 .bio-wrapper img {
     width: 20%;
@@ -632,8 +646,88 @@ h6 {
     font-weight: 500;
 }
 
+/* faq page */
+.faq-box {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.faq-question {
+    display: flex;
+    align-items: flex-start;
+}
+
+.faq-question img {
+    width: 22px;
+    cursor: pointer;
+}
+
+.faq-question p {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.faq-answer {
+    margin-left: 32px;
+    padding: 10px;
+    background: whitesmoke;
+}
+
+.faq-answer p {
+    font-style: oblique;
+    line-height: 1.5;
+}
 
 
+/* contact us */
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 500px;
+    border: var(--onsite-color) solid 1px;
+    border-radius: 20px;
+    background:whitesmoke;
+    padding: 20px;
+    color: var(--onsite-color);
+    margin: 0 auto;
+}
+
+form label {
+    font-size: .8em;
+}
+
+form button {
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 20px ;
+}
+
+.form-row {
+    display: flex;
+    flex: 100%;
+}
+
+form input {
+   height: 30px;
+}
+
+#first {
+    margin-right: 10px;
+}
+
+form .input-block {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+form #message {
+    width: 100%;
+}
 
 /* Other */
 

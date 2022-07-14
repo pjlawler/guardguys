@@ -352,26 +352,14 @@ h6 {
     max-width: 400px;
 }
 
-.csr-wrapper {
-    border: black 1px solid;
-    text-align: center;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.csr-wrapper img {
-    max-width: 150px;
-}
-
-
 
 /* Appointment Scheduler */
+
 #control-row {
     display: flex;
     justify-content: flex-end;
     align-items:center;
+
 }
 
 #current-week {
@@ -436,12 +424,6 @@ h6 {
 
 #event-input {
     display: none;
-    flex-direction: column;
-    width: 400px;
-    background-color: whitesmoke;
-    border: solid 2px black;
-    box-shadow: 2px 2px 5px;
-    padding: 10px;
     z-index: 1;
     margin-left: -200px;
     margin-top: -100px;
@@ -530,7 +512,7 @@ h6 {
     font-size: 14px;
     margin: 0;
 }
-
+/* 
 .login-form {
     display: flex;
     flex-direction: column;
@@ -573,7 +555,7 @@ h6 {
 
 .login-form input {
     margin: 0;
-}
+} */
 
 
 #event-title {
@@ -711,6 +693,12 @@ form button {
     flex: 100%;
 }
 
+.spaced-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 form input {
    height: 30px;
 }
@@ -725,9 +713,19 @@ form .input-block {
     flex: 1;
 }
 
+form .inline-block {
+    display: flex;
+    align-items: center;
+}
+
 form #message {
     width: 100%;
 }
+
+form .start-block {
+    margin-right: 10px;
+}
+
 
 /* Other */
 

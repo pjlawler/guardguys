@@ -2,6 +2,7 @@
 <div class="main-section">
     <h1 class="align-center text-primary">Schedule</h1>
     <hr class="my-4">
+    
     <div id="control-row">
         <div id="schedule-controls">
             <div id="week-controls">
@@ -23,27 +24,33 @@
     <section class="week-view"></section>
 </div>
 
+
+{{!-- Modal Form --}}
 <form id="event-input" class="center-page">
-    <h2 id="form-label">Edit Details</h2>
+    <h5 id="form-label" class="align-center">Edit Details</h5>
     <label for="event-title">Event</label>
     <input type="text" name="" id="event-title">
     <div>
-        <div class="selector-group">
-            <label for="start-date">Start</label>
-            <input id="start-date" class="date-selector" type="date">    
-            <input id="start-time" class="time-selector" type="time">       
+        <br>
+        <div class="form-row">
+            <div class="input-block start-block">
+                <label for="start-date">Start</label>
+                <input id="start-date" class="date-selector" type="date">    
+                <input id="start-time" class="time-selector" type="time">       
+            </div>
+            <div class="input-block">
+                <label for="start-date">End</label>
+                <input id="end-date" class="date-selector" type="date">    
+                <input id="end-time" class="time-selector" type="time">
+            </div>           
         </div>
-        <div class="selector-group">
-            <label for="start-date">End</label>
-            <input id="end-date" class="date-selector" type="date">    
-            <input id="end-time" class="time-selector" type="time">
-        </div>
-        <div class="assigned-line">
-            <div>
+        <br>
+        <div class="spaced-row">
+            <div class="inline-block">
                 <label for="onsite-selector">OnSITE</label>
                 <input type="checkbox" name="onsite-selector" id="onsite-selector">    
             </div>
-            <div>
+            <div class="inline-blow">
                 <label for="user-selector">Assigned to</label>
                 <select id="user-selector"></select>        
             </div>

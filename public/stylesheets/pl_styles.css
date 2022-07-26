@@ -123,6 +123,8 @@ h6 {
     max-width: 1400px;
     min-height: 76vh;
     margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .split {
@@ -325,8 +327,8 @@ h6 {
 
 .partner-wrapper {
     display: flex;
+    justify-content:space-around;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .partner_logo {
@@ -334,6 +336,10 @@ h6 {
     margin: 10px;
     max-width: 200px;
   
+}
+
+.client_logo {
+    flex: 1;
 }
 
 
@@ -435,14 +441,14 @@ h6 {
 
 /* About Section */
 
-.mission-statement {
+.page-header {
     border: black 1px solid;
     background: var(--onsite-color);
     margin: 0 auto;
     padding: 10px;
 }
 
-.mission-statement p {
+.page-header p {
     font-size: 2.0em;
     line-height: 2.0;
     text-align: center;
@@ -632,6 +638,28 @@ h6 {
     font-weight: 500;
 }
 
+.info-block-wrapper {
+    /* display: inline; */
+    padding-left: 25px;
+    padding-right: 25px;    
+}
+
+.info-block-wrapper img {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+   
+}
+
+.info-list li {
+    list-style: disc;
+    line-height: 1.5;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
 /* faq page */
 .faq-box {
     margin-top: 10px;
@@ -734,7 +762,6 @@ form .inline-block {
     justify-content: flex-start;
     align-items: center;
     flex: 3;
-
 }
 
 form #message {
@@ -743,6 +770,10 @@ form #message {
 
 form .start-block {
     margin-right: 10px;
+}
+
+#background_table {
+    width: 100%;
 }
 
 

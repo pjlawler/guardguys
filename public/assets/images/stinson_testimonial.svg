@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="634px" height="252px" viewBox="0 0 634 252" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>stinson_testimonial</title>
+    <defs>
+        <filter x="-1.7%" y="-4.3%" width="103.3%" height="108.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stinson_testimonial" filter="url(#filter-1)">
+            <path d="M592.469471,0.625924875 C604.757787,0.665377157 609.311288,1.9664336 613.895092,4.41787914 C618.502341,6.88186284 622.118137,10.4976588 624.582121,15.1049077 C627.07187,19.7603343 628.375,24.3845028 628.375,37.1122383 L628.375,37.1122383 L628.375,209.887762 C628.375,222.615497 627.07187,227.239666 624.582121,231.895092 C622.118137,236.502341 618.502341,240.118137 613.895092,242.582121 C609.312534,245.0329 604.760395,246.333949 592.477553,246.374047 L592.477553,246.374047 L37.1122383,246.375 C24.3845028,246.375 19.7603343,245.07187 15.1049077,242.582121 C10.4976588,240.118137 6.88186284,236.502341 4.41787914,231.895092 C1.96710016,227.312534 0.66605077,222.760395 0.625953474,210.477551 L0.625953474,210.477551 L0.625924875,36.5305287 C0.665377157,24.2422133 1.9664336,19.6887123 4.41787914,15.1049077 C6.88186284,10.4976588 10.4976588,6.88186284 15.1049077,4.41787914 C19.687466,1.96710016 24.2396049,0.66605077 36.5224465,0.625953474 L36.5224465,0.625953474 Z" id="Rectangle" stroke="#007BFF" stroke-width="1.25" fill="#FFFFFF"></path>
+            <g id="Group" transform="translate(26.283286, 8.169122)" fill="#2A6FDB" font-family="Jaldi-Bold, Jaldi" font-weight="bold">
+                <text id="“Partnering-with-Gua" font-size="25" line-spacing="35">
+                    <tspan x="0" y="29.1241638">“Partnering with Guard Guys has completely streamlined our </tspan>
+                    <tspan x="0" y="64.1241638">process for drug screening and has literally saved us hours </tspan>
+                    <tspan x="0" y="99.1241638">of work trying to find labs and coordinate paperwork and </tspan>
+                    <tspan x="0" y="134.124164">testing.  They are a rare find with their attention to detail </tspan>
+                    <tspan x="0" y="169.124164">and superior customer service!“</tspan>
+                </text>
+                <text id="Shelly-C.,-Stinson-E" font-size="15" line-spacing="15">
+                    <tspan x="0.0171207905" y="201.824527">Shelly C., Stinson Electric Inc</tspan>
+                    <tspan x="0.0171207905" y="216.824527">New Brighton, MN</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

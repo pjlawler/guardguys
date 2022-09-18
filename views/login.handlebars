@@ -1,23 +1,29 @@
 {{>navbar}}
-<div class="container" style="height: 70vh;">
-{{>home-button}}
+<div class="main-section" style="height: 70vh;">
+  <h1 class="align-center text-primary">Employee Portal</h1>
+  <hr class="my-4">
+  <form action="submit" id='login-form'>
+    
+    <h5 class='align-center'>Employee Login</h5>
 
+    <div class='form-row'>  
+        <div class="input-block">
+            <label for="email-login">Email</label>
+            <input type="email" name="email" id="email-login"/>
+        </div>
+    </div>
+    
+    <br>
 
+    <div class="form-row">
+        <div class="input-block">
+            <label for="password-login">Password</label>
+            <input type="password" name="password" id="password-login"/>
+        </div>
+    </div>
+    
+    <button type="submit" class='btn-primary'>Login</button>
+  </form>
 </div>
-<form class="login-form">
-  <h2 id="form-label">User Login</h2>
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-  <script src="/javascript/login.js"></script>
-</form>
-
+<script src="/javascript/login.js"></script>
 {{>footer}}

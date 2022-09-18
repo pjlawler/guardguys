@@ -1,0 +1,155 @@
+{{>navbar}}
+
+<div class="main-section split">
+      {{!-- left side of page --}}
+      <div class="left-side">
+
+        {{!-- Oncall banner --}}
+        <img src="/assets/images/oncall-banner.png" class="oncall-banner" alt="...">
+
+
+        {{!-- More Info --}}
+        <br>
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Services</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+          <div class="panel-body">
+            <div class="more_info-wrapper">
+              <a href="/drug_alcohol_testing"><img src="assets/images/drug_alcohol-bmp.png" alt=""></a>
+              <a href="/dot_programs"><img src="/assets/images/dot_testing-bmp.png" alt=""></a>
+              <a href="/background_checks"><img src="/assets/images/background_checks-bmp.png" alt=""></a>
+              <a href="/employer_solutions"><img src="/assets/images/employer_solutions-bmp.png" alt=""></a>
+              <a href="/dna_testing"><img src="/assets/images/dna_testing-bmp.png" alt=""></a>
+              <a href="/other_services"><img src="/assets/images/other_testing-bmp.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+        {{!-- partner logos --}}
+        <br>
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Our Partners</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_more</span> --}}
+          </div>
+          <div class="panel-body">
+            <div class="partner-wrapper">
+              <a href="https://ndasa.com/" target="_blank" rel="noopener"><img src="/assets/images/ndasa.svg" class="partner_logo"alt="..."></a>
+              <a href="https://www.mntrucking.org/" target="_blank" rel="noopener"><img src="/assets/images/mta.svg" class="partner_logo"alt="..."></a>
+              <a href="https://www.twincitiesnorth.org/" target="_blank" rel="noopener"><img src="/assets/images/chamber.svg" class="partner_logo"alt="..."></a>
+              <a href="https://www.samhsa.gov/" target="_blank" rel="noopener"><img src="/assets/images/samhsa.svg" class="partner_logo"alt="..."></a>
+              <a href="https://fadv.com/" target="_blank" rel="noopener"><img src="/assets/images/first_advantage.svg" class="partner_logo"alt="..."></a>
+              <a href="https://www.disa.com/" target="_blank" rel="noopener"><img src="/assets/images/disa.svg" class="partner_logo"alt="..."></a>
+              <a href="https://www.aabb.org/" target="_blank" rel="noopener"><img src="/assets/images/abab.svg" class="partner_logo" alt="..."></a>
+              <a href="https://medtox.labcorp.com/" target="_blank" rel="noopener"><img src="/assets/images/labcorp.svg" class="partner_logo"alt="..."></a>
+          </div>            
+          </div>
+        </div>
+      </div>
+      <br>
+
+      {{!-- right side of page --}}
+      <div class="right-side p-0">
+        
+        {{!-- right column header --}}
+        <div class="header-wrapper align-center">
+          <img src="/assets/images/header-right.png" alt="">
+        </div>
+        <br>
+
+        {{!-- Clinic Map --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="text-primary">Walk-in Clinic Location</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+          <div class="panel-body">
+  
+              <iframe src="https://maps.google.com/maps?q=70%20County%20Road%20C%20West,%20Little%20Canada,%20MN&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             
+          </div>
+        </div>
+        <br>
+        
+        {{!-- Clinic Hours --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Clinic Hours</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+          <br>
+          <p class="text-primary align-center">No appointments needed during normal business hours!</p>
+          <br>
+          <div class="panel-body">
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+              <tr><td>Tuesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+              <tr><td>Wednesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+              <tr><td>Thursday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+              <tr><td>Friday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+              <tr><td>Saturday</td><td class="time-cell">By appointment</td></tr>
+              <tr><td>Sunday</td><td class="time-cell">By appointment</td></tr>
+            </table>
+            <br>     
+          </div>
+        </div>
+        <br>
+
+        {{!-- Fingerprinting Hours --}}
+        <div id="fp-hours-panel" class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Fingerprinting Hours</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_more</span> --}}
+            {{!-- add collapsed to the panel-body class to keep it collapsed --}}
+          </div>
+          <br>
+          <p class="text-primary align-center">Online pre-enrollment required for fingerprint scheduling.</p>
+          <br>
+           <div class="panel-body">
+              <table class="hours-table">
+                <tr><td>Monday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+                <tr><td>Tuesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+                <tr><td>Wednesday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+                <tr><td>Thursday</td><td class="time-cell">8:00am - 7:00pm</td></tr>
+                <tr><td>Friday</td><td class="time-cell">8:00am - 5:00pm</td></tr>
+                <tr><td>Saturday</td><td class="time-cell">By appointment</td></tr>
+                <tr><td>Sunday</td><td class="time-cell">Closed</td></tr>
+              </table>   
+              <p class="center-link"><a href="https://uenroll.identogo.com/manage-appointment" target="_blank" rel="noopener">Pre-enroll Here</a></p>
+            </div>
+        </div>
+        <br>
+        {{!-- Contact Us --}}
+        <div class="panel">
+          <div class="panel-title">
+            <h5 class="card-title text-primary">Contact Info</h5>
+            {{!-- <span class="material-symbols-outlined panel-toggle">expand_less</span> --}}
+          </div>
+           <div class="panel-body">
+              <div class="contact24_7">
+                <a href="tel:+16512741756"><img src="/assets/images/24_7-number.png" alt="..."></a>
+                <hr class="my-2" />
+              </div>
+              <table class="hours-table">
+                <tr><td>Clinic/Office</td><td><a href="tel:+16512741756">(651)274-1756</a></td></tr>
+                <tr><td>Fax</td><td>(651)846-5600</td></tr>
+                <tr><td>Email</td><td><a href="mailto:support@guardguys.com">support@guardguys.com</a></td></tr>
+              </table>
+              <br>   
+          </div>
+        </div>
+      </div>
+</div>
+<div class="main-section">
+  <hr class="my-4">
+  <h3 class="text-primary align-center">Here's what our customers are saying</h3>
+  <br>
+  <div class="elfsight-app-eb67281a-578a-4d47-b385-d48589e1be0a google-review"></div>
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na1.hs-scripts.com/14548190.js"></script>
+  <script src="/javascript/panels.js"></script>
+</div>
+ 
+{{>footer}}

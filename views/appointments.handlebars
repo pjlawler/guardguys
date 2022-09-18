@@ -1,79 +1,75 @@
 {{>navbar}}
-<div class="container">
-    <div class="constainer d-flex justify-content-between align-items-center mt-1">
-        <div class="container flex-grow-1">
-            <a href="/" class="btn btn-primary me-1" role="button">&laquo; Home</a>
-        </div>
-        <div class="container d-flex justify-content-end align-items-center">
-            <button id="add-event" class="btn btn-primary me-1">New Event</button>
-            <div class="selector-label ms-3 me-1">displaying week of</div>
-            <div class="week-controls">
-                <div class="week-selector me-1">
-                    <div class="week-window">
+<div class="main-section">
+    <h1 class="align-center text-primary">Schedule</h1>
+    <hr class="my-4">
+    
+    <div id="control-row">
+        <div id="schedule-controls">
+            <div id="week-controls">
+                <div id="selector-wrapper">
+                    <div id="week-label">displaying week of</div>
+                    <div id="week-selector">
                         <button id="left-arrow">&LeftArrow;</button>
                         <div><p id="weekOf"></p></div>
                         <button id="right-arrow">&RightArrow;</button>
                     </div>
                 </div>
-                <button id="current-week" class="btn btn-primary">This week</button>
+                <button id="current-week" class="btn-primary">This week</button>
             </div>
+           
         </div>
-    </div>        
-    <hr class="my-1">
-    <h1 class="text-center">Appointment Scheduler</h1>
-    <section class="week-view overflow-scroll"></section>
+        <button id="add-event" class="btn-primary">New Event</button>
+    </div>  
+    <br>     
+    <section class="week-view"></section>
 </div>
 
-<form id="event-input">
-    <h2 id="form-label">Edit Details</h2>
+
+{{!-- Modal Form --}}
+<form id="event-input" class="center-page">
+    <h5 id="form-label" class="align-center">Edit Details</h5>
     <label for="event-title">Event</label>
     <input type="text" name="" id="event-title">
-    <div>
-        <div class="selector-group">
+
+    <br>
+    <div class="form-row">
+        <div class="input-block start-block">
             <label for="start-date">Start</label>
             <input id="start-date" class="date-selector" type="date">    
             <input id="start-time" class="time-selector" type="time">       
         </div>
-        <div class="selector-group">
+        <div class="input-block">
             <label for="start-date">End</label>
             <input id="end-date" class="date-selector" type="date">    
             <input id="end-time" class="time-selector" type="time">
+        </div>           
+    </div>
+    <br>
+
+    <div class="spaced-row">
+        <div class="inline-block">
+            <label for="onsite-selector">OnSITE</label>
+            <input type="checkbox" name="onsite-selector" id="onsite-selector">    
         </div>
-        <div class="assigned-line">
-            <div>
-                <label for="onsite-selector">OnSITE</label>
-                <input type="checkbox" name="onsite-selector" id="onsite-selector">    
-            </div>
-            <div>
-                <label for="user-selector">Assigned to</label>
-                <select id="user-selector"></select>        
-            </div>
+        <div class="input-block">
+            <label for="user-selector">Assigned to</label>
+            <select id="user-selector"></select>        
         </div>
     </div>
 
-    <label for="event-notes">Notes</label>
-    <textarea name="" id="event-notes" cols="30" rows="5"></textarea>
+    <div class="form-row">
+        <div class="input-block">
+            <label for="event-notes">Notes</label>
+            <textarea name="" id="event-notes" cols="30" rows="5"></textarea>                
+        </div>
+    </div>
+
     <div class="button-group">
         <button id="submit">Submit</button>
         <button id="cancel">Cancel</button>
         <button id="delete">Delete</button>
     </div>
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script src="/javascript/schedule.js"></script>

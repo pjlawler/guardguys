@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS chore_tracker_db;
+DROP DATABASE IF EXISTS guardguys_db;
 
-CREATE DATABASE chore_tracker_db;
+CREATE DATABASE guardguys_db;

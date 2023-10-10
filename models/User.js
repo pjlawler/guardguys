@@ -46,13 +46,10 @@ User.init({
             return newUserData;
         },
         async beforeUpdate(updatedUserData) {
-if(updatedUserData.password) {
-                console.log('updating password')
-                            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-} else {
-                console.log('bypassing password update')
-            }
-                        return updatedUserData;
+            if(updatedUserData.password.charAt(0) != "$") {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            } 
+            return updatedUserData;
         }
     },
     sequelize,

@@ -69,7 +69,7 @@ router.put('/:id', (req, res) => {
     })
     .then(dbUserData => {
         if(!dbUserData) {
-            res.status(404).json({message:'user with this id not found'})
+            res.status(404).json({message:'user with this id was not found in the db'})
             return;
         }
         res.json(dbUserData);
